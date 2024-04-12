@@ -20,4 +20,22 @@ SELECT * FROM EMPLOYEE;  -- Use to select all data in table.
 
 SELECT EMP_NAME,EMP_CITY FROM EMPLOYEE; 
 
+-- Add column in exiting table
+
+ALTER TABLE EMPLOYEE
+ADD EMP_POISITION VARCHAR(50);
+
+-- How to update table or set the value of this newly add column (EMP_POISITION)
+
+UPDATE EMPLOYEE
+SET EMP_POISITION = 'DEVELOPER'
+WHERE EMP_ID = 101;
+
+UPDATE EMPLOYEE
+SET EMP_POISITION = 'PROGRAMMER'
+WHERE EMP_ID = 102;
+
+
+
+
 
