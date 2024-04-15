@@ -241,6 +241,48 @@ close c1;
 end;
 
 
+--+++++++++++++++++++++++++++++++++++++++++++++++++ Parameterized Explicit cursor ++++++++++++++++++++++++++++++++++++++++++++++++++
+--Example 03 :- 
+
+declare
+cursor c1 is
+select * from employee 
+where dept_id = 1;
+
+cursor c2 is
+select * from employee 
+where dept_id = 2;
+
+begin
+for i in c1 loop
+dbms_output.put_line('Employee details is :- ' || i.emp_id || ' ' || i.emp_name); 
+end loop;
+
+for i in c2 loop
+dbms_output.put_line('Employee details is :- ' || i.emp_id || ' ' || i.emp_name); 
+end loop;
+end;
+
+--+++++++++++++++++++++++++++++++++++++++++++++++++ Parameterized Explicit cursor ++++++++++++++++++++++++++++++++++++++++++++++++++
+--Example 04 :- 
+
+declare
+cursor c1(dept_no employee.dept_id%TYPE) is
+select * from employee
+where dept_id = dept_no;
+
+begin
+for i in c1(1) loop
+dbms_output.put_line('Employee details is :- ' || i.emp_name || ' ' || i.emp_salary);
+end loop;
+
+for i in c1(3) loop
+dbms_output.put_line('Employee details is :- ' || i.emp_name || ' ' || i.emp_salary);
+end loop;
+end;
+
+
+
 
 
 
