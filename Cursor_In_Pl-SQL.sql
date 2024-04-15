@@ -354,6 +354,32 @@ close c2;
 
 end;
 
+-- +++++++++++++++++++++++++++++++++++++++ Ref cursor in PL/SQL +++++++++++++++++++++++++++++++++++++++++++++++
+declare
+type temp_ref is ref cursor;
+tr temp_ref;
+emp employee%rowtype;
+dept department%rowtype;
+begin
+open tr for select * from employee;
+loop
+fetch tr into emp;
+exit when tr%notfound;
+dbms_output.put_line('Employee details is :- ' || emp.emp_name || emp.emp_salary);
+end loop;
+
+close tr;
+
+open tr for select * from department;
+loop
+fetch tr into dept;
+exit when tr%notfound;
+dbms_output.put_line('department details is :- ' || dept.dept_name);
+end loop;
+
+close tr;
+end;
+
 
 
 
