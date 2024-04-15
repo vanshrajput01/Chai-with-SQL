@@ -191,6 +191,42 @@ declare
 e_name employee.emp_name%type;
 e_salary employee.emp_salary%type;
 
+cursor c1 is 
+select emp_name,emp_salary from employee
+where dept_id = 1;
+
+cursor c2 is 
+select emp_name,emp_salary from employee
+where dept_id = 2;
+begin
+dbms_output.put_line('++++++++++++++++++++++++++++++++dept_id :- 01 ++++++++++++++++++++++++++++++++');
+open c1;
+loop
+fetch c1 into e_name,e_salary;
+exit when c1%notfound;
+dbms_output.put_line('Employee name : - ' || e_name ||'Employee salary : - ' || e_salary);  
+end loop;
+close c1;
+
+dbms_output.put_line('++++++++++++++++++++++++++++++++dept_id :- 02 ++++++++++++++++++++++++++++++++');
+
+open c2;
+loop
+fetch c2 into e_name,e_salary;
+exit when c2%notfound;
+dbms_output.put_line('Employee name : - ' || e_name ||'Employee salary : - ' || e_salary);  
+end loop;
+close c2;
+
+end;
+
+
+  
+--++++++++++++++++++++++++++++++++++++++++++++++++++++++  Example 02 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+declare
+e_name employee.emp_name%type;
+e_salary employee.emp_salary%type;
+
 cursor c1(dept_no number) is
 select emp_name,emp_salary from employee where dept_id = dept_no;
 
