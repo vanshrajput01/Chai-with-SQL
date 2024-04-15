@@ -283,6 +283,27 @@ end;
 
 
 
+--+++++++++++++++++++++++++++++++++++++++++++++++++Multiple Parameterized Explicit cursor ++++++++++++++++++++++++++++++++++++++++++++++++++
+--Example 05 :- 
+
+declare
+cursor c1(dept_no employee.dept_id%TYPE,e_exp_year employee.emp_exp_year%type) is
+select * from employee
+where dept_id = dept_no
+and emp_exp_year > e_exp_year;
+
+begin
+for i in c1(1,2) loop
+dbms_output.put_line('Employee details is :- ' || i.emp_name || ' ' || i.emp_salary);
+end loop;
+
+for i in c1(3,3) loop
+dbms_output.put_line('Employee details is :- ' || i.emp_name || ' ' || i.emp_salary);
+end loop;
+end;
+
+
+
 
 
 
