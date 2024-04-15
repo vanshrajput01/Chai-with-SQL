@@ -112,6 +112,20 @@ dbms_output.put_line('yes. data is found this employee id');
 end if;
 end;
 
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ Implicit cursor with %rowcount attribute ++++++++++++++++++++++++++++++++++++
+
+declare
+e_id number := :emp_no;
+e_name varchar(20);
+
+begin
+select emp_name into e_name from employee
+where emp_id = e_id;
+
+dbms_output.put_line(sql%rowcount);
+end;
+
+
 
 
 
