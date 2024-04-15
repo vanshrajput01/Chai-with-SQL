@@ -184,6 +184,28 @@ end if;
 end;
 
 
+-- +++++++++++++++++++++++++++++++++++++++++++++++ Parameterized Explicit Cursor +++++++++++++++++++++++++++++++++++++++++++++
+
+-- Example 01 : - 
+declare
+e_name employee.emp_name%type;
+e_salary employee.emp_salary%type;
+
+cursor c1(dept_no number) is
+select emp_name,emp_salary from employee where dept_id = dept_no;
+
+begin
+open c1(1);
+loop
+fetch c1 into e_name,e_salary;
+exit when c1%notfound;
+dbms_output.put_line('Employee deatils : - ' || e_name || e_salary);
+end loop;
+close c1;
+end;
+
+
+
 
 
 
