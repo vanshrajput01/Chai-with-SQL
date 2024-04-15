@@ -125,6 +125,35 @@ where emp_id = e_id;
 dbms_output.put_line(sql%rowcount);
 end;
 
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++ Explicit cursor with %ispen attribute ++++++++++++++++++
+
+--Explicit cursor with %isopen attribute
+
+declare
+emp employee%rowtype;
+
+cursor c1 is
+select * from employee;
+
+begin
+  
+if not c1%isopen then
+open c1;
+end if;
+
+loop
+fetch c1 into emp;
+exit when c1%notfound;
+dbms_output.put_line('Employee details is  : - ' || emp.emp_name ||' ' || emp.emp_salary); 
+end loop;
+
+if c1%isopen then
+close c1;
+end if;
+
+end;
+
+
 
 
 
