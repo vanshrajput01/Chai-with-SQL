@@ -302,6 +302,7 @@ dbms_output.put_line('Employee details is :- ' || i.emp_name || ' ' || i.emp_sal
 end loop;
 end;
 
+
 -- ++++++++++++++++++++++++++++++++++++++++ if two difference table +++++++++++++++++++++++++++++++++++++++++++++++
 -- Example 06 :- 
 declare
@@ -320,6 +321,40 @@ for i in c2 loop
 dbms_output.put_line('Employee datails is  : -' || i.dept_name);
 end loop;
 end;
+
+-- ++++++++++++++++++++++++++++++++++++++++ if two difference table +++++++++++++++++++++++++++++++++++++++++++++++
+
+-- Example 07 : - 
+declare
+emp employee%rowtype;
+dept department%rowtype;
+
+cursor c1 is
+select * from employee;
+
+cursor c2 is
+select * from department;
+
+begin
+open c1;
+loop
+fetch c1 into emp;
+exit when c1%notfound;
+dbms_output.put_line('Employee details : - '||emp.emp_name || ' ' || emp.emp_salary);
+end loop;
+close c1;
+
+open c2;
+loop
+fetch c2 into dept;
+exit when c2%notfound;
+dbms_output.put_line('Department details is : - ' || dept.dept_name); 
+end loop;
+close c2;
+
+end;
+
+
 
 
 
