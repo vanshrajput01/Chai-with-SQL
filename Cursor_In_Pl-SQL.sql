@@ -302,6 +302,26 @@ dbms_output.put_line('Employee details is :- ' || i.emp_name || ' ' || i.emp_sal
 end loop;
 end;
 
+-- ++++++++++++++++++++++++++++++++++++++++ if two difference table +++++++++++++++++++++++++++++++++++++++++++++++
+-- Example 06 :- 
+declare
+cursor c1 is
+select * from employee;
+
+cursor c2 is
+select * from department;
+
+begin
+for i in c1 loop
+dbms_output.put_line('Employee datails is  : -' || i.emp_name || ' ' || i.emp_salary);
+end loop;
+
+for i in c2 loop
+dbms_output.put_line('Employee datails is  : -' || i.dept_name);
+end loop;
+end;
+
+
 
 
 
