@@ -76,7 +76,32 @@ dbms_output.put_line('Employee details : -' ||  emp.emp_id|| ' ' || emp.emp_name
 end loop;
 close c1;
 end;
- 
+
+
+-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ Implicit cursor with %found Attribute +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-- Implicit cursor with %found attribute;
+
+declare
+e_id number := :emp_no;
+
+begin
+delete from employee
+where emp_id = e_id;
+
+if sql%found then
+dbms_output.put_line('yes.');
+else
+dbms_output.put_line('No.');
+end if;
+end;
+
+
+
+
+
+
+
+
 
 
 
