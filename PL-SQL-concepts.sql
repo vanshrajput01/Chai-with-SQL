@@ -1,3 +1,4 @@
+
 -- Anonymous code block in PL/SQL
 -- Example 01 :- 
 declare
@@ -69,6 +70,26 @@ insert_data_in_table(102,'Jone',30000,'Developer');
 end;
 
 
+--**************************************************************       Parameter Procedure in PL/SQL           **************************************************************************
+--Example 01 :- thing Table is already created and using procedure to print data;
+
+create or replace procedure print_data_of_table(
+employee_id in int
+) as
+e_id int;
+e_name varchar(20);
+e_salary int;
+begin
+select emp_id,emp_name,emp_salary into e_id,e_name,e_salary
+from employee
+where emp_id = employee_id;
+dbms_output.put_line('Employee details id : - ' || e_id || ' ' || e_name || ' ' || e_salary);
+
+end;
+
+begin
+PRINT_DATA_OF_TABLE(101);
+end;
 
 
 
