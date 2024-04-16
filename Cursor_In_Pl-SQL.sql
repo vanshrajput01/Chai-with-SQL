@@ -355,6 +355,7 @@ close c2;
 end;
 
 -- +++++++++++++++++++++++++++++++++++++++ Ref cursor in PL/SQL +++++++++++++++++++++++++++++++++++++++++++++++
+-- Example 01 : -
 declare
 type temp_ref is ref cursor;
 tr temp_ref;
@@ -379,6 +380,31 @@ end loop;
 
 close tr;
 end;
+
+
+-- +++++++++++++++++++++++++++++++++++++++ Ref cursor in PL/SQL +++++++++++++++++++++++++++++++++++++++++++++++
+-- Example 02 : - 
+
+declare
+emp employee%rowtype;
+type temp_ref_cursor is ref cursor;
+trc temp_ref_cursor;
+begin
+open trc for select * from employee;
+loop
+fetch trc into emp;
+exit when trc%notfound;
+DBMS_OUTPUT.PUT_LINE('Employee details is : ' || emp.emp_name || ' ' || emp.emp_salary);
+end loop;
+close trc;
+
+
+end;
+
+
+
+
+
 
 
 
