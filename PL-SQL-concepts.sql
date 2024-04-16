@@ -92,6 +92,48 @@ PRINT_DATA_OF_TABLE(101);
 end;
 
 
+--****************************************                         Conditional statement in PL-SQL      ***************************************************************************
+
+--IF condition statement
+
+--Example 01 :- 
+
+declare
+num1 int := 20;
+num2 int := 0;
+result int := 0;
+
+begin
+if num1 != 0 and num2 != 0 then
+result := num1 / num2;
+end if;
+
+dbms_output.put_line('Result is :- '|| result); 
+
+end;
+
+--IF-ELSE condition statement
+
+--Example 02 :- 
+
+declare
+num1 int := 20;
+num2 int := 0;
+result int := 0;
+
+begin
+if num1 != 0 and num2 != 0 then
+result := num1 / num2;
+dbms_output.put_line('Result is :- '|| result); 
+else
+dbms_output.put_line('give valid value to num2');
+end if;
+
+end;
+
+
+
+
 
 
 
