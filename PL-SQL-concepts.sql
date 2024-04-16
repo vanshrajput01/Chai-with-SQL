@@ -132,6 +132,30 @@ end if;
 end;
 
 
+--&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&                      IF-ELSE-ELSIF condition statement        *****************************************************************
+
+--Example 03 :-
+
+declare
+stud_grade char(1) := :grade;
+begin
+
+IF stud_grade = 'A' then
+dbms_output.put_line('Excellent');
+ELSIF stud_grade = 'B' then
+dbms_output.put_line('Very Good');
+ELSIF stud_grade = 'C' then
+dbms_output.put_line('Good');
+else
+dbms_output.put_line('Enter valid grade');
+end if;
+
+end;
+
+
+
+
+
 
 
 
