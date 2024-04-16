@@ -403,6 +403,36 @@ end;
 
 
 
+-- ***************************************** Ref cursor *****************************************************************
+
+-- Example 04 :- 
+
+declare
+dept department%rowtype;
+emp employee%rowtype;
+type temp_ref_c1 is ref cursor;
+trc temp_ref_c1;
+
+begin
+open trc for select * from employee;
+loop
+fetch trc into emp;
+exit when trc%notfound;
+dbms_output.put_line('employees details is: ' || emp.emp_id || ' ' || emp.emp_name || ' ' ||emp.emp_salary);
+end loop;
+close trc;
+
+open trc for select * from department;
+loop
+fetch trc into dept;
+exit when trc%notfound;
+dbms_output.put_line('Department details is: ' || dept.dept_id || ' ' || dept.dept_name);
+end loop;
+close trc;
+
+end;
+
+
 
 
 
