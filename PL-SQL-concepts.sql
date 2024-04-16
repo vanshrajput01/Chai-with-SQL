@@ -45,6 +45,32 @@ begin
 insert_data_in_table;
 end;
 
+--**************************************************************       Parameter Procedure in PL/SQL           **************************************************************************
+--Example 01 :- thing Table is already created and using procedure to insert data;
+
+
+-- Here create or replace Procedure 
+create or replace procedure insert_data_in_table(
+e_id in int,
+e_name in varchar2,
+e_salary in int,
+e_position in varchar2
+)as
+
+begin
+insert into employee values(e_id,e_name,e_salary,e_position);
+dbms_output.put_line('Data insert into employee successfully!!');
+end;
+
+ 
+-- Here Completed Procedure
+begin
+insert_data_in_table(102,'Jone',30000,'Developer');
+end;
+
+
+
+
 
 
 
