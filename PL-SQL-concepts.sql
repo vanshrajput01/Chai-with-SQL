@@ -91,6 +91,33 @@ begin
 PRINT_DATA_OF_TABLE(101);
 end;
 
+-- Example 03 :- 
+create or replace procedure insert_data_in_table(
+e_id number,
+e_name varchar2,
+e_salary number,
+e_position varchar2
+) as
+
+cursor c1 is
+select * from employee where emp_id = e_id;
+
+begin
+insert into employee values(e_id,e_name,e_salary,e_position);
+dbms_output.put_line('data insert success Fully!!');
+
+begin
+
+for i in c1 loop
+dbms_output.put_line('added data is this : - ' ||i.emp_id || ' ' || i.emp_name || ' ' || i.emp_salary);
+end loop;
+end;
+
+end;
+
+begin
+insert_data_in_table(107,'june',50000,'juinor-manager');
+end;
 
 --****************************************                         Conditional statement in PL-SQL      ***************************************************************************
 
