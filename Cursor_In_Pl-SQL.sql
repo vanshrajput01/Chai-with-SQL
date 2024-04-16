@@ -405,8 +405,7 @@ end;
 
 -- ***************************************** TYPE OF Ref cursor *****************************************************************
 
---types of REF Cursor
---1.Weakly type Ref cursor
+--1.****************************************   Weakly type Ref cursor   *********************************************************
 --Example 01: - 
 
 declare
@@ -429,6 +428,27 @@ loop
 fetch trc into dept;
 exit when trc%notfound;
 dbms_output.put_line('Department details is: ' || dept.dept_id || ' ' || dept.dept_name);
+end loop;
+close trc;
+
+end;
+
+
+--2. *************************************     Strong type Ref cursor *************************************************************
+--Example 02: - 
+
+declare
+dept department%rowtype;
+emp employee%rowtype;
+type temp_ref_c1 is ref cursor RETURN employee%ROWTYPE;
+trc temp_ref_c1;
+
+begin
+open trc for select * from employee;
+loop
+fetch trc into emp;
+exit when trc%notfound;
+dbms_output.put_line('employees details is: ' || emp.emp_id || ' ' || emp.emp_name || ' ' ||emp.emp_salary);
 end loop;
 close trc;
 
