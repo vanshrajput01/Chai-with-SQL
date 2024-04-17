@@ -12,3 +12,13 @@ return total_of_values;
 end;
 
 
+-- Call Function
+
+declare
+total number;
+begin
+total := add_values(20,30);
+dbms_output.put_line('Sum is : - ' || total);
+end;
+
+
