@@ -82,12 +82,15 @@ create or replace view employee_view as
 select emp_id,emp_name,emp_salary from employee;
 
 
--- ************************************************************ Perform DML operation on table *******************************************************************************
+-- ************************************************************ Perform DML operation on Basic View *******************************************************************************
 
 
 begin
 insert into employee_view values (109,'emp9',6500);
 end;
+
+
+-- 
 
 
 
