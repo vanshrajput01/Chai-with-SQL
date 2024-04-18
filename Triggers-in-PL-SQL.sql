@@ -52,6 +52,12 @@ begin
 dbms_output.put_line('************statement Level - AFTER update statement level trigger *****************');
 end;
 
+-- Performing  Update operation on table
+-- Like this : -
+update employee
+set emp_salary = 3000
+where dept_name = 'HR';
+
 
 
 
