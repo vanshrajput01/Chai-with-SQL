@@ -43,6 +43,14 @@ begin
 dbms_output.put_line('************statement Level - Before update statement level trigger *****************');
 end;
 
+-- Example of ******************************************************   AFTER UPDATE STATEMENT LEVEL TRIGGER  **************************************************************
+create or replace trigger before_update_statement 
+AFTER
+update
+on employee
+begin
+dbms_output.put_line('************statement Level - AFTER update statement level trigger *****************');
+end;
 
 
 
