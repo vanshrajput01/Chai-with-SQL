@@ -11,3 +11,17 @@
 -- FOR EACH ROW -- IF THIS IS ROW LEVEL TRIGGER
 -- BEGIN
 -- END;
+
+
+-- Example of ************************   BEFORE UPDATE ROW LEVEL TRIGGER  **************************************************************
+create or replace trigger befer_update_row
+before
+update
+on employee
+for each row
+begin
+dbms_output.put_line('************Row Level - Before update Row level trigger *****************');
+end;
+
+
+
