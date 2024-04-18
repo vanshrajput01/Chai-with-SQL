@@ -94,7 +94,7 @@ end;
 -- Example 01: - 
 
 create or replace view emp_view as
-select e.emp_id,e.emp_name,e.emp_salary,d.dept_name 
+select e.emp_id,e.emp_name,e.emp_salary,e.dept_id,d.dept_name 
 from employee e , department d
 where e.dept_id = d.dept_id;
 
@@ -113,6 +113,55 @@ Error report -
 
 
 -- ****************************   Using Instead of Trigger to Performing DML Operation on Complex view ********************************************
+
+
+select * from department;
+select * from employee;
+
+select * from emp_view;
+
+create or replace view emp_view as
+select e.emp_id,e.emp_name,e.emp_salary,e.dept_id,d.dept_name 
+from employee e , department d
+where e.dept_id = d.dept_id;
+
+
+--Instead of Trigger
+create or replace trigger Ist_of_update_tri 
+INSTEAD of insert on emp_view
+for each row
+
+declare
+i_count number := 0;
+i_dept_id number;
+i_emp_count number;
+
+
+begin
+select count(*) into i_emp_count from employee
+where emp_id = :new.emp_id;
+
+if i_emp_count > 0 then null;
+else
+insert into employee(emp_id,emp_name,emp_salary,dept_id) values (:new.emp_id,:new.emp_name,:new.emp_salary,:new.dept_id)
+returning dept_id into i_dept_id;
+dbms_output.put_line('Employee table inserted successfully!!');
+end if;
+select count(*)into i_count from department
+where dept_id = i_dept_id;
+
+select count(*)into i_count from department
+where dept_id = :new.dept_id;
+
+if i_count > 0 then null;
+else
+insert into department(dept_id,dept_name) values (:new.dept_id,:new.dept_name);
+dbms_output.put_line('department table inserted successfully!!');
+end if;
+end;
+
+insert into emp_view values(110,'emp10',1800,4,'Finance');
+
 
 
 
