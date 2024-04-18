@@ -64,10 +64,19 @@ where dept_name = 'HR';
 -- How to create view in PL/SQL
 -- Example 01: - 
 
+-- Basic view
+create or replace view view_name as
+select col1 , col2 , col3 from table_name;
+
+-- Complex View
+
 create or replace view view_name as
 select t1.col1 , t1.col2 , t2.col3 , t2.col1 , t2.col2
 from table1 t1 , table2 t2
 where t1.comman_col = t2.comman_col;
+
+
+
 
 
 
