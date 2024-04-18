@@ -90,7 +90,29 @@ insert into employee_view values (109,'emp9',6500);
 end;
 
 
--- 
+-- Example of Complex view
+-- Example 01: - 
+
+create or replace view emp_view as
+select e.emp_id,e.emp_name,e.emp_salary,d.dept_name 
+from employee e , department d
+where e.dept_id = d.dept_id;
+
+-- ******************************************** Performing DML operation on Complex View *******************************************
+begin
+insert into emp_view values (109,'emp9',3600,'Manager');
+end;  
+-- This Code give Error : - 
+Error report -
+-- ORA-01776: cannot modify more than one base table through a join view
+-- ORA-06512: at line 2
+-- 01776. 00000 -  "cannot modify more than one base table through a join view"
+-- *Cause:    Columns belonging to more than one underlying table were either
+--            inserted into or updated.
+-- *Action:   Phrase the statement as two or more separate statements.
+
+
+-- ****************************   Using Instead of Trigger to Performing DML Operation on Complex view ********************************************
 
 
 
