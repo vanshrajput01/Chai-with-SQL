@@ -76,6 +76,22 @@ from table1 t1 , table2 t2
 where t1.comman_col = t2.comman_col;
 
 
+-- Eample 02 :-  Basic View 
+
+create or replace view employee_view as
+select emp_id,emp_name,emp_salary from employee;
+
+
+-- ************************************************************ Perform DML operation on table *******************************************************************************
+
+
+begin
+insert into employee_view values (109,'emp9',6500);
+end;
+
+
+
+
 
 
 
