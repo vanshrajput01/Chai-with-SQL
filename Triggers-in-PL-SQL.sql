@@ -24,4 +24,17 @@ dbms_output.put_line('************Row Level - Before update Row level trigger **
 end;
 
 
+-- Example of ******************************************************   After UPDATE ROW LEVEL TRIGGER  **************************************************************
+create or replace trigger after_update_row
+after
+update
+on employee
+for each row
+begin
+dbms_output.put_line('************Row Level - After update Row level trigger *****************');
+end;
+
+
+
+
 
