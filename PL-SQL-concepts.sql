@@ -180,6 +180,38 @@ end if;
 end;
 
 
+-- **************************************************   Parameter IN, OUT, IN OUT ********************************************************
+
+
+-- Parameter LIKe - IN , OUT ,IN OUT
+
+--Example 01 :- IN paramter
+
+create or replace function power_of_func (num1 in number,num2 in number) return number
+is
+result number := 1;
+
+begin
+for i in 1..num2 loop
+result := result * num1;
+
+end loop;
+return result;
+end;
+
+
+declare
+x number := 2;
+y number := 3;
+z number;
+begin
+z := power_of_func(x,y);
+dbms_output.put_line('Result is :- '||z);
+end;
+
+
+
+
 
 
 
