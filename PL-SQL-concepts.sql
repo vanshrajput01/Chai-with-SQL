@@ -234,6 +234,30 @@ dbms_output.put_line(result);
 end;
 
 
+--Example 03 :- IN OUT paramter
+
+create or replace procedure add_value_proce(x in out number , y in out number) as
+result number;
+
+begin
+for i in 1..y loop
+result := x + y;
+end loop;
+
+y := result;
+
+end;
+
+declare
+num1 number := 7;
+num2 number := 8;
+begin
+dbms_output.put_line(num2);
+ADD_VALUE_PROCE(num1,num2);
+dbms_output.put_line(num2);
+end;
+
+
 
 
 
