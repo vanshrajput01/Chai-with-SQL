@@ -132,6 +132,12 @@ begin
 DYNAMIC_EMP_PROCE4(1,'department');
 end;
 
+-- Using Execute immediate to perform the DDL copmmand in Anonyoums block;
+
+begin
+execute IMMEDIATE 'truncate TABLE employee_ex';
+end;
+
 
 
 
