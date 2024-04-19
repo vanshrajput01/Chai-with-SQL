@@ -74,6 +74,23 @@ dbms_output.put_line('You are assign the salary success fully.');
 end if;
 end;
 
+-- Here i am update max salary of this employee but this code give an Error 
+update employee
+set emp_salary = 550000
+where emp_id = 103;
+
+
+-- Error is : -
+
+Error starting at line : 31 in command -
+update employee
+set emp_salary = 3000
+where emp_id = 103
+Error report -
+ORA-04091: table APPS.EMPLOYEE is mutating, trigger/function may not see it
+ORA-06512: at "APPS.BEF_UPDATE_EMP_TRIGGER", line 7
+ORA-04088: error during execution of trigger 'APPS.BEF_UPDATE_EMP_TRIGGER'
+
 
 -- Here i am update min salary of this employee but this code give an Error 
 update employee
