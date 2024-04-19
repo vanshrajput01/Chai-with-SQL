@@ -110,6 +110,27 @@ DYNAMIC_EMP_PROCE4(1,'employee');
 end;
 
 
+-- Example 02 :- 
+----Execute Immediate in PL/SQL
+
+CREATE OR REPLACE PROCEDURE dynamic_emp_proce4 (
+    v_dept_id NUMBER,
+    v_table_name VARCHAR2
+) AS
+    v_count NUMBER;
+    v_sql VARCHAR2(300); -- Corrected variable type declaration
+BEGIN
+    v_sql := 'SELECT COUNT(*) FROM ' || v_table_name || ' WHERE dept_id = :deptno'; -- Added spaces
+    EXECUTE IMMEDIATE v_sql INTO v_count USING v_dept_id;
+    
+    dbms_output.put_line(v_count);
+END;
+
+
+
+begin
+DYNAMIC_EMP_PROCE4(1,'department');
+end;
 
 
 
