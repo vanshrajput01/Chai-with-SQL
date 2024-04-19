@@ -211,6 +211,28 @@ end;
 
 
 
+--Example 02 :- OUT paramter
+
+create or replace procedure power_of_proce(num1 in number,num2 in number,result out number) as
+num3 number := 1;
+BEGIN
+for i in 1..num2 loop
+num3 := num3 * num1;
+end loop;
+result := num3; 
+end;
+
+
+
+declare
+x number := 3;
+y number := 3;
+result number;
+begin
+POWER_OF_PROCE(x,y,result);
+dbms_output.put_line(result);
+end;
+
 
 
 
