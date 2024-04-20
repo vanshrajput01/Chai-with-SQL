@@ -223,6 +223,20 @@ end;
 
 
 
+-- ****************************************************************     into statement return single row using bind variable    *****************************************************
+
+declare
+v_sql varchar(300);
+v_count number;
+v_dept_id number := 1;
+begin
+v_sql := 'select count(*) from employee where dept_id = :deptno';
+EXECUTE IMMEDIATE v_sql into v_count using v_dept_id;
+dbms_output.put_line(v_count);
+end;
+
+
+
 
 
 
