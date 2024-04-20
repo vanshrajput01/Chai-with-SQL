@@ -208,6 +208,23 @@ dbms_output.put_line('employee table number of record is : - ' || v_count);
 end;
 
 
+-- ******************************************************************         INTO statement with Multiple value Return          **************************************************
+
+declare
+v_sql varchar(300);
+e_id number;
+e_name varchar(10);
+e_salary number;
+begin
+v_sql := 'select emp_id,emp_name,emp_salary from employee where emp_id = 102';
+EXECUTE IMMEDIATE v_sql into e_id,e_name,e_salary;
+dbms_output.put_line('employee details is :- '|| e_id || ' '|| e_name || ' ' || e_salary);
+end;
+
+
+
+
+
 
 
 
