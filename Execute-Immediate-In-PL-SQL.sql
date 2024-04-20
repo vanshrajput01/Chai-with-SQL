@@ -195,6 +195,18 @@ dbms_output.put_line('Table deleted successfully!!');
 end;
 
 
+-- Single value return without bind variable
+
+declare
+v_count number;
+v_sql varchar(500);
+
+begin
+v_sql := 'select count(*) from employee';
+EXECUTE IMMEDIATE v_sql into v_count;
+dbms_output.put_line('employee table number of record is : - ' || v_count);
+end;
+
 
 
 
