@@ -139,5 +139,21 @@ execute IMMEDIATE 'truncate TABLE employee_ex';
 end;
 
 
+--***************************************************************     NO return NO Bind Variable and NO Error   ********************************************************
+
+--Execute Immediate Example01 :- 
+
+declare
+v_sql varchar(400); 
+begin
+v_sql := 'update employee
+set emp_salary = 2000
+where emp_id = 103';
+exec_output.put_line('Data Update success fully!!!');
+end;
+
+select * from employee;
+
+
 
 
