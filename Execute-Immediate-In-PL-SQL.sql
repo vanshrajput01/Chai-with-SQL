@@ -155,5 +155,22 @@ end;
 select * from employee;
 
 
+--***************************************************************     NO return NO Bind Variable and NO Error   ********************************************************
+
+--Execute Immediate Example01 :- 
+
+
+declare
+v_sql varchar(400); 
+begin
+v_sql := 'delete from employee
+where emp_id = 103';
+exec_output.put_line('data Delete success fully!!!');
+end;
+
+
+
+
+
 
 
