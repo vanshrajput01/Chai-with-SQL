@@ -236,6 +236,23 @@ dbms_output.put_line(v_count);
 end;
 
 
+-- ************************************************     into statement return single row (multiple values )using bind variable   ******************************************************
+
+declare
+v_dept_id number := 4;
+v_sql varchar(300);
+e_id number;
+e_name varchar(10);
+e_salary number;
+begin
+v_sql := 'select emp_id,emp_name,emp_salary from employee where dept_id = :deptno';
+EXECUTE IMMEDIATE v_sql into e_id,e_name,e_salary using v_dept_id;
+dbms_output.put_line('employee details is :- '||e_id || ' ' ||e_name || ' ' ||e_salary);
+end;
+
+
+
+
 
 
 
