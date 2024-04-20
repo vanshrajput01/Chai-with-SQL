@@ -168,6 +168,38 @@ where emp_id = 103';
 exec_output.put_line('data Delete success fully!!!');
 end;
 
+-- NO return NO Bind Variable and NO Error
+
+--Execute Immediate Example01 :- 
+
+--**********************************************************************       DDL commands       **********************************************************************
+
+
+-- That give me an Error;
+begin
+create table employee_ex as select * from employee;
+end;
+
+drop table employee_ex;
+
+begin
+EXECUTE IMMEDIATE 'create table employee_ex as select * from employee';
+dbms_output.put_line('Table created successfully!!');
+end;
+
+
+
+begin
+EXECUTE IMMEDIATE 'drop table employee_ex';
+dbms_output.put_line('Table deleted successfully!!');
+end;
+
+
+
+
+
+
+
 
 
 
