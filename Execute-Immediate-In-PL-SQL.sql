@@ -339,6 +339,19 @@ end loop;
 end;
 
 
+-- Example 05 :-
+
+declare
+d_id number := 1;
+d_name varchar(20) := 'HR';
+v_sql varchar(200);
+begin
+v_sql := 'insert into employee_ex values(:id , :name )';
+EXECUTE IMMEDIATE v_sql using d_id,d_name;
+dbms_output.put_line('number of rows insert into employee : '|| sql%rowcount);
+end;
+
+
 
 
 
