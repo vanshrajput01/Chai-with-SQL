@@ -270,6 +270,7 @@ end;
 
 -- *****************************************************************************  bulk collect into ****************************************************************************
 
+-- Example 01 : - 
 declare
 v_sql varchar(300);
 type v_emp_name is table of varchar(20);   -- type
@@ -283,6 +284,25 @@ dbms_output.put_line('in Employee table all employee name is :-'||v_e_name(i));
 end loop;
 
 end;
+
+-- *************************************************************************  Bulk collect into *****************************************************************************
+-- Example 02 : - 
+declare
+v_sql varchar(300);
+type v_emp_name is table of varchar(20);
+v_e_name v_emp_name;
+type v_emp_salary is table of number;
+v_e_salary v_emp_salary;
+begin
+v_sql := 'select emp_name,emp_salary from employee';
+execute IMMEDIATE v_sql bulk collect into v_e_name,v_e_salary;
+for i in 1..v_e_name.count loop
+dbms_output.put_line(v_e_name(i) || ' ' ||v_e_salary(i));
+end loop;
+
+end;
+
+
 
 
 
