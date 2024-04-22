@@ -303,6 +303,25 @@ end loop;
 end;
 
 
+-- Example 03 : -
+declare
+v_sql varchar(300);
+type v_emp_name is table of varchar(20);
+v_e_name v_emp_name;
+type v_emp_salary is table of number;
+v_e_salary v_emp_salary;
+begin
+v_sql := 'select emp_name,emp_salary from employee where dept_id = :dept_no';
+execute IMMEDIATE v_sql bulk collect into v_e_name,v_e_salary using 1;
+for i in 1..v_e_name.count loop
+dbms_output.put_line(v_e_name(i) || ' ' ||v_e_salary(i));
+end loop;
+
+end;
+
+
+
+
 
 
 
