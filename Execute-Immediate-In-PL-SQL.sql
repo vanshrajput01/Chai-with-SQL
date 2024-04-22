@@ -250,6 +250,43 @@ EXECUTE IMMEDIATE v_sql into e_id,e_name,e_salary using v_dept_id;
 dbms_output.put_line('employee details is :- '||e_id || ' ' ||e_name || ' ' ||e_salary);
 end;
 
+-- **********************************************************   that give me Error *************************************************************************************************
+
+create or replace procedure emp_exe_Immediate as
+e_name varchar(20);
+e_salary number;
+v_sql varchar(300);
+begin
+v_sql := 'select emp_name,emp_salary from employee where dept_id = 2';
+execute IMMEDIATE v_sql into e_name,e_salary;
+dbms_output.put_line('Employee details is :- '||e_name|| ' ' || e_salary);
+
+end;
+
+begin
+EMP_EXE_IMMEDIATE;
+end;
+
+
+-- *****************************************************************************  bulk collect into ****************************************************************************
+
+declare
+v_sql varchar(300);
+type v_emp_name is table of varchar(20);   -- type
+v_e_name v_emp_name;
+begin
+v_sql := 'select emp_name from employee';
+EXECUTE IMMEDIATE v_sql bulk COLLECT into v_e_name;
+
+for i in 1..v_e_name.count loop
+dbms_output.put_line('in Employee table all employee name is :-'||v_e_name(i));
+end loop;
+
+end;
+
+
+
+
 
 
 
