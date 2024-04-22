@@ -319,6 +319,24 @@ end loop;
 
 end;
 
+-- Example 04 :- 
+
+declare
+type emp_cur is ref cursor;
+c1 emp_cur;
+v_sql varchar(300);
+emp employee%rowtype;
+
+begin
+v_sql := 'select * from employee where dept_id = :dept_no';
+open c1 for v_sql using 1;
+loop
+fetch c1 into emp;
+exit when c1%notfound;
+dbms_output.put_line('Employee deatils is  : - '||emp.emp_name || ' ' ||emp.emp_salary);
+end loop;
+
+end;
 
 
 
