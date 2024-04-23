@@ -51,6 +51,12 @@ select emp_name,emp_salary,emp_bonus,(emp_salary + nvl(emp_bonus,0))total_salary
 
 select emp_name,emp_salary,emp_bonus,(emp_salary + nvl2(emp_bonus,emp_bonus,0))total_salary from employee_ex;
 
+-- DISTINCT In sql :- used to find unique records
+
+-- Example 01 :- 
+
+select DISTINCT dept_id from employee;
+
 
 
 
