@@ -58,6 +58,18 @@ select emp_name,emp_salary,emp_bonus,(emp_salary + nvl2(emp_bonus,emp_bonus,0))t
 select DISTINCT dept_id from employee;
 
 
+--Aggregation function in Sql
+
+--1. Count
+--2. Sum
+--3. Min
+--4. Max
+--5. Avg
+
+-- Total Number of employee in company
+
+select count(*) from employee;
+
 
 
 
