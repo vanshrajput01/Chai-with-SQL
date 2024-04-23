@@ -84,4 +84,8 @@ select min(emp_salary) from employee;
 select avg(emp_salary) from employee;
 
 
+-- How to total salary 
+select sum(emp_salary) from employee;
+
+
 
