@@ -35,6 +35,22 @@ UPDATE EMPLOYEE
 SET EMP_POISITION = 'PROGRAMMER'
 WHERE EMP_ID = 102;
 
+-- Who to handle null value in table
+
+-- These are two way to handle null value
+
+-- 1. NVL Function
+-- 2. NVL2 Function
+
+-- Example 01 : - 
+
+select emp_name,emp_salary,emp_bonus,(emp_salary + nvl(emp_bonus,0))total_salary from employee_ex;
+
+
+-- Example 02 :- 
+
+select emp_name,emp_salary,emp_bonus,(emp_salary + nvl2(emp_bonus,emp_bonus,0))total_salary from employee_ex;
+
 
 
 
