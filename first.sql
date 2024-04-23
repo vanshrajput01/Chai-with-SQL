@@ -79,5 +79,9 @@ select max(emp_salary) from employee;
 
 select min(emp_salary) from employee;
 
+--how to calculate avg salary of employee table
+
+select avg(emp_salary) from employee;
+
 
 
