@@ -70,6 +70,10 @@ select DISTINCT dept_id from employee;
 
 select count(*) from employee;
 
+--how to calculate max salary of employee table
+
+select max(emp_salary) from employee;
+
 
 
 
