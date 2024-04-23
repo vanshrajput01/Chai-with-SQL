@@ -75,5 +75,9 @@ select count(*) from employee;
 select max(emp_salary) from employee;
 
 
+--how to calculate min salary of employee table
+
+select min(emp_salary) from employee;
+
 
 
