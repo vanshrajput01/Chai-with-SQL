@@ -88,4 +88,19 @@ select avg(emp_salary) from employee;
 select sum(emp_salary) from employee;
 
 
+================================================================ LIKE OR NOT LIKE   =======================================================================================
+
+select * from employee_table
+where employeename like 'John%';
+
+select * from employee_table
+where employeename like '%hn%';
+
+select * from employee_table
+where employeename like 'John Do_';
+
+select * from employee_table
+where employeename like '__hn Doe';
+
+
 
