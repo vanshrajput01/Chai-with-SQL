@@ -124,3 +124,9 @@ select * from employee_table
 where employeename not in ('John Doe','Mike Johnson');
 
 
+=========================================================================            Between in sql              ======================================================================
+--Between means range 
+select * from employee_table
+where employeesalary BETWEEN 50000 and 80000;
+
+
