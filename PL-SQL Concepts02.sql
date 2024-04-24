@@ -120,6 +120,29 @@ dbms_output.put_line('Error'|| SQLERRM);
 end;
 
 
+====================================================================  RECORD DATA TYPE IN PL/SQL ===================================================================================
+
+Example 01 := 
+--Record Data type in PL/SQL
+
+declare
+type emp_record is record(
+v_emp_name varchar(20),
+v_emp_salary number
+);    -- Here declare record data type;
+
+er emp_record;
+begin
+select emp_name,emp_salary into er.v_emp_name,er.v_emp_salary
+from employee
+where emp_id = :employee_no;
+dbms_output.put_line('Employee details is : '|| er.v_emp_name || ' ' || er.v_emp_salary);
+exception
+when others then
+dbms_output.put_line('Error'|| SQLERRM);
+end;
+
+
 
 
 
