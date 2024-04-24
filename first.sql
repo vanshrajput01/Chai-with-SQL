@@ -161,3 +161,16 @@ from employee_ex e  FULL JOIN department_ex d
 on e.dept_id = d.dept_id;
 
 
+
+=========================================================================  UNION ALL AND UNION ===========================================================================
+
+
+select * from employee_ex where dept_id in(1,3)
+union all -- That give me duplicate record 
+select * from employee_ex where dept_id in (2,3);
+
+
+select * from employee_ex where dept_id in(1,3)
+union 
+select * from employee_ex where dept_id in (2,3);
+
