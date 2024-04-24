@@ -60,6 +60,19 @@ end;
 
 -- Example 01 :- 
 
+declare
+v_emp_name employee.emp_name%type;
+v_emp_salary employee.emp_salary%type;
+begin
+select emp_name,emp_salary into v_emp_name,v_emp_salary
+from employee
+where emp_id = :employee_id;
+dbms_output.put_line('employee details is : '||v_emp_name || ' ' ||v_emp_salary);
+exception
+when others then
+dbms_output.put_line('Error is : ' || SQLERRM);
+end;
+
 
 
 
