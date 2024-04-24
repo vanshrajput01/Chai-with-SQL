@@ -189,3 +189,14 @@ select count(*) order_numbers,customer_id from orders
 where order_date like '%23'
 group by customer_id
 order by order_numbers desc;
+
+
+-- Example 03 :- if employee and department bothare different table.
+
+select avg(emp_salary) avg_salary_of_dept ,dept_name from (select e.emp_name,e.emp_salary,e.dept_id,d.dept_name from employee e , department d
+where e.dept_id = d.dept_id)
+group by dept_name
+order by avg_salary_of_dept desc;
+
+
+
