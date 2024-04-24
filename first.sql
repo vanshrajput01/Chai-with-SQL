@@ -174,3 +174,18 @@ select * from employee_ex where dept_id in(1,3)
 union 
 select * from employee_ex where dept_id in (2,3);
 
+
+===========================================================         Group by   ====================================================================================
+
+-- Example 01 :- thata give me total number of employee in each department
+  
+  select count(emp_id),dept_id from employee
+  group by dept_id;
+
+
+
+  -- Example 02 :- 
+select count(*) order_numbers,customer_id from orders
+where order_date like '%23'
+group by customer_id
+order by order_numbers desc;
