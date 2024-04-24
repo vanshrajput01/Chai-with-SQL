@@ -36,6 +36,7 @@ dbms_output.put_line('Error' || SQLERRM);
 end;
 
 -- ****************************************************************                    INTO Statement in PL/SQL          ************************************************************
+-- Example 01 :---
 
 declare
 v_emp_id number; -- declare variable if table column data is kown .
@@ -51,6 +52,8 @@ when others then
 dbms_output.put_line('Error' || SQLERRM);
 end;
 
+
+-- 
 
 
 
