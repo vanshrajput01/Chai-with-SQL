@@ -103,4 +103,8 @@ select * from employee_table
 where employeename like '__hn Doe';
 
 
+select * from employee_table
+where employeename not like '%Doe';
+
+
 
