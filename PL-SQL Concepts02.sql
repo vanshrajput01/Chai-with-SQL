@@ -104,6 +104,23 @@ dbms_output.put_line('Error is : '||SQLERRM);
 end;
 
 
+-- Example := 02
+
+declare
+dept department%rowtype;
+begin
+select dept_name,dept_location into dept.dept_name,dept.dept_location
+from department
+where dept_id = :department_no;
+dbms_output.put_line('Department details is : '|| dept.dept_name || ' ' ||dept.dept_location);
+
+exception
+when others then
+dbms_output.put_line('Error'|| SQLERRM);
+end;
+
+
+
 
 
 
