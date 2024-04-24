@@ -130,3 +130,34 @@ select * from employee_table
 where employeesalary BETWEEN 50000 and 80000;
 
 
+========================================================================  Joins IN SQL   =========================================================================================
+
+--INNER JOIN IN SQL
+
+select e.emp_name,e.emp_salary,d.dept_name,d.dept_location 
+from employee_ex e inner join department_ex d
+on e.dept_id = d.dept_id;
+
+--                   OR
+
+select e.emp_name,e.emp_salary,d.dept_name,d.dept_location 
+from employee_ex e join department_ex d
+on e.dept_id = d.dept_id;
+
+--LEFT JOININ SQL
+
+select e.emp_name,e.emp_salary,d.dept_name,d.dept_location
+from employee_ex e left join department_ex d
+on e.dept_id = d.dept_id;
+
+--RIGHT JOIN IN SQL.
+select e.emp_name,e.emp_salary,d.dept_name,d.dept_location
+from employee_ex e right join department_ex d
+on e.dept_id = d.dept_id;
+
+--FULL JOIN IN SQL.
+SELECT e.emp_name,e.emp_salary,d.dept_name,d.dept_location 
+from employee_ex e  FULL JOIN department_ex d
+on e.dept_id = d.dept_id;
+
+
