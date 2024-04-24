@@ -73,6 +73,38 @@ when others then
 dbms_output.put_line('Error is : ' || SQLERRM);
 end;
 
+-- Example 02 :- 
+declare
+v_dept_id department.dept_id%type;
+v_dept_name department.dept_name%type;
+v_dept_location department.dept_location%type;
+begin
+select dept_id,dept_name,dept_location into v_dept_id,v_dept_name,v_dept_location
+from department
+where dept_id = :department_no;
+dbms_output.put_line('Department details is : '|| v_dept_id || ' ' || v_dept_name || ' ' ||v_dept_location);
+exception
+when others then 
+dbms_output.put_line('Error is : '||SQLERRM );
+end;
+
+
+=================================================================  %rowtype     =================================================================================================
+
+declare
+emp employee%rowtype;
+begin
+select emp_name,emp_salary into emp.emp_name,emp.emp_salary
+from employee
+where emp_id = :employee_no;
+dbms_output.put_line('Employee details is : '|| emp.emp_name || ' ' ||emp.emp_salary);
+exception
+when others then
+dbms_output.put_line('Error is : '||SQLERRM);
+end;
+
+
+
 
 
 
