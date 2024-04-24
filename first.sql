@@ -110,4 +110,17 @@ select * from employee_table
 where employeesalary like '6%'
 
 
+========================================================================          IN , NOT IN         ============================================================================== 
+
+select * from employee_table
+where departmentname in ('HR','Marketing');
+
+--departmentname in ('HR','Marketing')  means departmentname = 'HR' and departmentname = 'marketing'
+
+select * from employee_table
+where employeesalary in (50000,80000);
+
+select * from employee_table
+where employeename not in ('John Doe','Mike Johnson');
+
 
