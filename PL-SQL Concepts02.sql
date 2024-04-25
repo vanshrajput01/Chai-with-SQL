@@ -293,6 +293,24 @@ dbms_output.put_line('Error' || SQLERRM);
 end;
 
 
+==========================================================================  Continue statement in PL-SQL ==============================================================================
+
+--Example 01:- 
+declare
+i number := 1;
+BEGIN
+while i <= 10 loop
+i := i+1;
+if i = 3 then
+CONTINUE;
+end if;
+dbms_output.put_line(i);
+end loop;
+EXCEPTION
+when others then
+dbms_output.put_line('Error'|| SQLERRM);
+END;
+
 
 
 
