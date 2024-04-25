@@ -223,6 +223,28 @@ dbms_output.put_line('Error : '||SQLERRM);
 end;
 
 
+=====================================================================================  LOOPS IN PL-SQL ==============================================================================
+
+--Loops in PL/SQL
+
+--1. LOOP
+
+declare
+v_table number := :table_no;
+i number := 1;
+v_result number;
+begin
+loop
+v_result := v_table * i;
+exit when i = 11; 
+dbms_output.put_line(v_result);
+i := i +1;
+end loop;
+exception
+when others then
+dbms_output.put_line('ERROR '|| SQLERRM);
+end;
+
 
 
 
