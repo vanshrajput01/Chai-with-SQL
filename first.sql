@@ -212,6 +212,14 @@ ORDER BY
     average_salary DESC;
 
 
+======================================================================================== NVL ================================================================================
+
+
+-- NVL 
+-- Exampple 01 :-  
+
+select emp_name,emp_salary,nvl(emp_salary,0)null_handle from employee; 
+
 
 
 
