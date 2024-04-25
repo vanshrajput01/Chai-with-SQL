@@ -180,6 +180,27 @@ end;
 
 
 
+=================================================================================          IF-ELSIF-ELSE           =======================================================================
+--Example01 : -  
+
+declare
+v_age number:= :your_age;
+begin
+if v_age >= 1 and v_age < 18 then
+dbms_output.put_line('You are child.');
+elsif v_age > 18 and v_age < 55 then
+dbms_output.put_line('You are Young.');
+elsif v_age > 55 then
+dbms_output.put_line('You are old.');
+else
+dbms_output.put_line('Oo,Enter your vaild age.');
+end if;
+exception
+when others then
+dbms_output.put_line('Error '|| SQLERRM);
+end;
+
+
 
 
 
