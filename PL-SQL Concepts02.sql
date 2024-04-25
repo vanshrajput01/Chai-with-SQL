@@ -338,6 +338,28 @@ dbms_output.put_line('Error:' || SQLERRM);
 end;
 
 
+================================================================   Explict cursor =======================================================================================
+
+--open fetch close
+
+
+declare
+v_emp_name varchar(20);
+cursor c1 is
+select emp_name from employee;
+begin
+open c1;
+loop
+fetch c1 into v_emp_name;
+exit when c1%notfound;
+dbms_output.put_line(v_emp_name);
+end loop;
+close c1;
+
+exception
+when others then
+dbms_output.put_line('Error '|| SQLERRM);
+end;
 
 
 
