@@ -274,6 +274,24 @@ dbms_output.put_line('Error '|| SQLERRM);
 end;
 
 
+===============================================================   WHILE LOOP =============================================================================================
+
+-- While in sql
+declare
+v_result number;
+v_table number := :table_no;
+i number := 1;
+begin
+while i <= 10 loop
+v_result := v_table * i;
+dbms_output.put_line(v_result);
+i := i + 1;
+end loop;
+exception 
+when others then
+dbms_output.put_line('Error' || SQLERRM);
+end;
+
 
 
 
