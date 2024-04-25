@@ -245,6 +245,20 @@ when others then
 dbms_output.put_line('ERROR '|| SQLERRM);
 end;
 
+====================================================================      FOR LOOP =============================================================================
+-- Example 01 :- 
+
+declare
+i number;
+begin
+for i in 1..10 loop
+dbms_output.put_line(i);
+end loop;
+exception
+when others then
+dbms_output.put_line('Error : '||SQLERRM);
+end;
+
 
 
 
