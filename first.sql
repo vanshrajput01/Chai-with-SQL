@@ -225,6 +225,7 @@ select emp_name,emp_salary,nvl(emp_salary,0)null_handle from employee;
 select emp_name,emp_salary,nvl2(emp_salary,emp_salary,0)null2_handler from employee;
 
 ==============================================================================    DECODE  =====================================================================================
+-- Example 01 : -
 select emp_name,emp_salary,decode(emp_salary, '',10,10000,100,20000,200,12000,120,emp_salary)deummy_Salary from employee;
 
 
