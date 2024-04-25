@@ -142,6 +142,25 @@ when others then
 dbms_output.put_line('Error'|| SQLERRM);
 end;
 
+-- Example 02 : - 
+declare
+type dept_cur is record(
+v_dept_name department.dept_name%type,
+v_dept_loc department.dept_location%type
+);
+
+dc dept_cur;
+begin
+select dept_name,dept_location into dc.v_dept_name,dc.v_dept_loc 
+from department
+where dept_id = :dept_no; 
+dbms_output.put_line('Department details :- ' || dc.v_dept_name || ' ' ||dc.v_dept_loc);
+
+exception
+when others then
+dbms_output.put_line('Error is :- '|| SQLERRM);
+end;
+
 
 ===================================================================   IF ELSE STATEMENT ============================================================================================
 
