@@ -259,6 +259,20 @@ when others then
 dbms_output.put_line('Error : '||SQLERRM);
 end;
 
+-- Example 02 : -
+
+declare
+v_table number := :table_no;
+i number;
+begin
+for i in 1..10 loop
+dbms_output.put_line(v_table * i);
+end loop;
+exception
+when others then 
+dbms_output.put_line('Error '|| SQLERRM);
+end;
+
 
 
 
