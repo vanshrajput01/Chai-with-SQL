@@ -361,6 +361,39 @@ when others then
 dbms_output.put_line('Error '|| SQLERRM);
 end;
 
+--Example 02:- 
+============================================================================  perform update operation using cursor ===============================================================
+
+declare
+cursor c1 is
+select * from employee;
+begin
+for i in c1 loop
+if i.emp_salary < 2500 then
+update employee
+set creation_date = '01-04-24'
+where emp_id = i.emp_id;
+dbms_output.put_line(i.emp_name || ' Employee modify succcess fully.');
+end if;
+if i.emp_salary >= 2500 then
+update employee
+set creation_date = '04-02-24'
+where emp_id = i.emp_id;
+dbms_output.put_line(i.emp_name || ' Employee modify succcess fully.');
+end if;
+end loop;
+
+exception 
+when others then
+dbms_output.put_line('ERROR : -'||SQLERRM);
+end;
+
+
+
+
+
+
+
 
 
 
