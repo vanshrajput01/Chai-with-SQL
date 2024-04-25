@@ -312,6 +312,31 @@ dbms_output.put_line('Error'|| SQLERRM);
 END;
 
 
+========================================================================   GOTO STATEMENT =========================================================================
+
+declare
+i number;
+begin
+for i in 1..10 loop
+dbms_output.put_line(i);
+if i = 3 then
+goto jump; 
+elsif i = 7 then
+goto hello;
+dbms_output.put_line(i);
+end if;
+end loop;
+
+<<jump>>
+dbms_output.put_line('i am 3');
+
+<<hello>>
+dbms_output.put_line('i am 7');
+
+exception when others then
+dbms_output.put_line('Error:' || SQLERRM);
+end;
+
 
 
 
