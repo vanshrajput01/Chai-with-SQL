@@ -143,6 +143,23 @@ dbms_output.put_line('Error'|| SQLERRM);
 end;
 
 
+===================================================================   IF ELSE STATEMENT ============================================================================================
+
+--IF END
+declare
+v_age number := :your_age;
+begin
+
+IF v_age < 18 then
+dbms_output.put_line('You age is not valid for driving');
+else
+dbms_output.put_line('You are is valid for driving');
+end if;
+exception when others then
+dbms_output.put_line('Error' || SQLERRM);
+end;
+
+
 
 
 
