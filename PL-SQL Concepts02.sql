@@ -201,6 +201,45 @@ dbms_output.put_line('Error '|| SQLERRM);
 end;
 
 
+-- Example 02 :- 
+
+declare
+v_grade CHAR := :your_grade;
+begin
+if v_grade = 'A' then
+dbms_output.put_line('Excellent');
+elsif v_grade = 'B' then
+dbms_output.put_line('Very Good');
+elsif v_grade = 'C' then
+dbms_output.put_line('Good');
+elsif v_grade = 'D' then
+dbms_output.put_line('Not Bad');
+else
+dbms_output.put_line('Enter your valid grade.');
+end if;
+exception
+when others then
+dbms_output.put_line('Error : '||SQLERRM);
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
