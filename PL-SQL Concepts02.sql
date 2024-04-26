@@ -468,6 +468,31 @@ dbms_output.put_line('Error ' || SQLERRM);
 end;
 
 
+ =====================================================================    Parameterized cursor with multiple arguments   =======================================================
+-- Example 01 :-  
+declare
+v_dept number := :dept_no;
+v_salary number := :salary; 
+cursor c1(v_dept_id number,v_emp_salary number) is
+select * from employee
+where dept_id = v_Dept_id and emp_salary >= v_emp_salary;
+begin
+if v_Dept is null or v_salary is null then
+dbms_output.put_line('please give me value of all argumnets.');
+else
+for i in c1(v_dept,v_salary) loop
+dbms_output.put_line('Employee details : '|| i.emp_name || ' ' ||i.emp_salary);
+end loop;
+end if;
+exception
+when others then
+dbms_output.put_line('Error : -'||SQLERRM);
+end;
+
+
+
+
+
 
 
 
