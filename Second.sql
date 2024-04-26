@@ -29,7 +29,21 @@ modify emp_salary number not null;
 alter table employee_ex
 add dept_id number not null;
 
-===========================================================
+insert into employee_ex values(1,'emp1',20000,1);
+
+-- This line give en error 
+
+insert into employee_ex (emp_id,emp_name,emp_salary)values(2,'emp1',10000);
+
+
+Error starting at line : 25 in command -
+insert into employee_ex (emp_id,emp_name,emp_salary)values(2,'emp1',10000)
+Error report -
+ORA-01400: cannot insert NULL into ("APPS"."EMPLOYEE_EX"."DEPT_ID")
+
+=====================================================================  DEFAULT Constraint   =================================================================================
+
+
 
 
 
