@@ -541,6 +541,29 @@ dbms_output.put_line('Error : '|| SQLERRM);
 end;
 
 
+===========================================================  STRONG REF CURSOR ==========================================================================================
+
+
+--Strong ref cursor
+declare
+emp employee%rowtype;
+dept department%rowtype;
+type ref_cur_strong is ref cursor RETURN employee%rowtype;
+rcs ref_cur_strong;
+begin
+open rcs for select * from employee;
+loop
+fetch rcs into emp;
+exit when rcs%notfound;
+dbms_output.put_line('Employee details : '|| emp.emp_name||' ' ||emp.emp_salary);
+end loop;
+close rcs;
+exception
+when others then
+dbms_output.put_line('Error is '||SQLERRM);
+end;
+
+
 
 
 
