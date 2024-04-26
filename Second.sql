@@ -45,5 +45,30 @@ ORA-01400: cannot insert NULL into ("APPS"."EMPLOYEE_EX"."DEPT_ID")
 
 
 
+create table employee_ex(
+emp_id number,
+emp_name varchar(20),
+emp_salary number DEFAULT 20000,
+emp_bouns number
+
+);
+
+insert into employee_ex (emp_id,emp_name) values (101,'emp1');  -- that is not give Error.
+
+select * from employee_ex;
+
+-- if table is already created 
+alter table employee_ex
+add dept_id number DEFAULT 1;
+
+
+-- -- IF table is already created How to add assign Constraint to column:- 
+alter table employee_Ex
+modify emp_bouns number DEFAULT 200;
+
+
+
+
+
 
 
