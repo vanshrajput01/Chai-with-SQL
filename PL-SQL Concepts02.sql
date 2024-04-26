@@ -389,6 +389,28 @@ dbms_output.put_line('ERROR : -'||SQLERRM);
 end;
 
 
+=========================================================================   perfrom delete opertaion using CURSOR ==================================================================
+
+
+declare
+cursor c1 is
+select * from employee;
+begin
+for i in c1 loop
+if i.emp_salary <= 1000 then
+delete from employee
+where emp_salary = i.emp_salary; 
+end if;
+end loop;
+exception
+when others then
+dbms_output.put_line('Error '||SQLERRM);
+
+end;
+
+
+
+
 
 
 
