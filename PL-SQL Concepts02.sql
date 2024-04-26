@@ -511,6 +511,35 @@ dbms_output.put_line('Error '||SQLERRM);
 end;
 
 
+=======================================================================   Ref cursor is use to get data from multiple table  ==========================================================
+--Ref cursor in PL-SQL.
+declare
+emp employee%rowtype;
+dept department%rowtype;
+type ref_cur is ref cursor;
+rc ref_cur;
+begin
+open rc for select * from employee;
+dbms_output.put_line('=====================    employee details =================================');
+loop
+fetch rc into emp;
+exit when rc%notfound;
+dbms_output.put_line('Employee details ' || emp.emp_name || ' ' ||emp.emp_salary);
+end loop;
+close rc;
+open rc for select * from department;
+dbms_output.put_line('=====================    Department details =================================');
+loop
+fetch rc into dept;
+exit when rc%notfound;
+dbms_output.put_line('Department details ' || dept.dept_name || ' ' ||dept.dept_location);
+end loop;
+close rc;
+exception
+when others then
+dbms_output.put_line('Error : '|| SQLERRM);
+end;
+
 
 
 
