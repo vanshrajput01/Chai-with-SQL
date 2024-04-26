@@ -408,6 +408,28 @@ dbms_output.put_line('Error '||SQLERRM);
 
 end;
 
+=======================================================================  Parameterized CURSOR ===============================================================================
+
+
+--parameterized cursor in PL=SQL
+
+--Example 01 : -
+
+declare
+cursor c1(v_dept_id number) is
+select * from employee
+where dept_id = v_dept_id;
+begin
+for i in c1(1) loop
+dbms_output.put_line(i.emp_name || ' ' ||i.emp_salary);
+end loop;
+exception
+when others then
+dbms_output.put_line('Error' || SQLERRM);
+end;
+
+
+
 
 
 
