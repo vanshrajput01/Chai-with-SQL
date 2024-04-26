@@ -491,6 +491,26 @@ end;
 
 
 
+========================================================      REF CURSOR ========================================================================================================
+
+declare
+emp employee%rowtype;
+type ref_cur is ref cursor;
+rc ref_cur;
+begin
+open rc for select * from employee;
+loop
+fetch rc into emp;
+exit when rc%notfound;
+dbms_output.put_line('Employee details is ' || emp.emp_name || ' ' || emp.emp_salary);
+end loop;
+close rc;
+exception
+when others then
+dbms_output.put_line('Error '||SQLERRM);
+end;
+
+
 
 
 
