@@ -446,6 +446,27 @@ when others then
 dbms_output.put_line('Error' || SQLERRM);
 end;
 
+============================================================== parameterized cursor with open fetch close ================================================================
+
+
+declare
+dept department%rowtype;
+cursor c1(v_dept_id number) is
+select * from department
+where dept_id = v_Dept_id;
+begin
+open c1(1);
+loop
+fetch c1 into dept;
+exit when c1%notfound;
+dbms_output.put_line('Department details :-  ' || dept.dept_name || ' ' || dept.dept_location);
+end loop;
+close c1;
+exception
+when others then
+dbms_output.put_line('Error ' || SQLERRM);
+end;
+
 
 
 
