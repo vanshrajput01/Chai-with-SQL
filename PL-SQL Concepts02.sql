@@ -565,6 +565,30 @@ end;
 
 
 
+=========================================================================  SYS_REFCURSOR ================================================================================
+
+
+
+--Strong ref cursor another example
+
+declare
+dept department%rowtype; 
+rcs sys_refcursor;
+begin
+open rcs for select * from department;
+loop
+fetch rcs into dept;
+exit when rcs%notfound;
+dbms_output.put_line('Employee details : '||dept.dept_name || ' ' ||dept.dept_location);
+end loop;
+close rcs;
+exception
+when others then
+dbms_output.put_line('Error '||SQLERRM);
+end;
+
+
+
 
 
 
