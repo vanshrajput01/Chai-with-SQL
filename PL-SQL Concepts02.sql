@@ -637,6 +637,30 @@ dbms_output.put_line('salary updated success fully!!');
 end;
 
 
+=========================================================================  Function in PL-SQL  ========================================================================================
+
+
+--Function in PL-SQL
+
+create or replace function add_func(
+num1 number,
+num2 number
+)
+return number is
+sum_of_values number;
+begin
+sum_of_values := num1 + num2;
+return sum_of_values;
+end;
+
+declare
+result_of_values number;
+begin
+result_of_values := add_func(10,20);
+dbms_output.put_line(result_of_values);
+end;
+
+
 
 
 
