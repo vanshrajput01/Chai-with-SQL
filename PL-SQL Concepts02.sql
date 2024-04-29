@@ -660,6 +660,43 @@ result_of_values := add_func(10,20);
 dbms_output.put_line(result_of_values);
 end;
 
+=============================================================================   
+
+create or replace procedure update_data_emp(
+v_dept_id in number,
+date_value in varchar2
+) as
+begin
+if v_dept_id != 1 and v_dept_id != 2 and v_dept_id != 3 and v_dept_id != 4 then
+dbms_output.put_line('Invalid department id!! Enter valid dept_id..');
+else
+update employee
+set updation_date = date_value
+where dept_id = v_dept_id;
+dbms_output.put_line('************* Update success fully!!*************');
+end if;
+end; 
+
+
+declare
+v_date varchar(20) := '20-04-24';
+v_dept_id number := 3;
+begin
+update_data_emp(v_dept_id,v_date);
+end;
+
+declare
+v_date varchar(20) := '10-04-24';
+v_dept_id number := 1;
+begin
+update_data_emp(v_dept_id,v_date);
+end;
+
+select * from employee;
+
+
+
+
 
 
 
