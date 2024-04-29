@@ -588,6 +588,28 @@ dbms_output.put_line('Error '||SQLERRM);
 end;
 
 
+======================================================================  Paramterized procedure in PL/SQL ===============================================================
+
+
+create or replace procedure emp_count_proce(
+v_dept_id in number,
+count_emp out number
+)as
+begin
+select count(*) into count_emp from employee
+WHERE dept_id = v_dept_id;
+end;
+
+declare
+v_dept_id number := 1;
+v_output_count number;
+begin
+emp_count_proce(v_dept_id,v_output_count);
+dbms_output.put_line('Employee count of '||v_output_count);
+end;
+
+
+
 
 
 
