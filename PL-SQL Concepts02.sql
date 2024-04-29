@@ -610,6 +610,33 @@ end;
 
 
 
+========================================================================   Parameterized procedure =====================================================================================
+
+create or replace procedure update_emp_salary_proce(v_dept_id in number,
+v_new_salary in number)
+as
+cursor c1 is
+select * from employee
+where dept_id = v_dept_id;
+
+begin
+for i in c1 loop
+update employee
+set emp_salary = i.emp_salary + v_new_salary
+where dept_id = v_dept_id;
+end loop;
+end;
+
+
+declare
+v_new_salary number := 1000;
+v_dept_id number := 2;
+begin
+UPDATE_EMP_SALARY_PROCE(v_dept_id,v_new_salary);
+dbms_output.put_line('salary updated success fully!!');
+end;
+
+
 
 
 
