@@ -21,3 +21,20 @@ select * from employee_ex
 where ROWNUM <= 3;
 
 
+===========================================================================  3. NEXTVAL ======================================================================================
+
+--  Pseudo Column in sql
+
+select * from employee_ex;
+
+--3. NEXTVAL
+
+create SEQUENCE emp_ex_dept_id;
+
+update employee_Ex
+set dept_id = emp_ex_dept_id.Nextval
+where emp_id = 102;
+
+
+
+
