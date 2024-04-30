@@ -732,6 +732,15 @@ begin
 dbms_output.put_line('****************  before update row level trigger *******************');
 end;
 
+--After update Row level trigger
+create or replace trigger update_aft_emp_ex_tri
+after
+update
+on employee_ex
+for each row
+begin
+dbms_output.put_line('****************  After update row level trigger *******************');
+end;
 
 
 
