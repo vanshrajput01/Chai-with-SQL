@@ -764,6 +764,14 @@ dbms_output.put_line('****************  after update statement level trigger ***
 end;
 
 
+==========================================================================  performing operation on this table  ===============================================================
+
+update employee_Ex
+set dept_id = 2
+where emp_id = 105;
+
+
+
 
 
 
