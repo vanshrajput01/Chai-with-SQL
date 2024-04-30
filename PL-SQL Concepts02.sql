@@ -695,6 +695,31 @@ end;
 select * from employee;
 
 
+=========================================================================== another example of paramterized cursor ================================================================
+
+
+create or replace procedure add_date_emp_ex_proce(v_dept_id in number) as
+begin
+if v_dept_id != 1 and v_dept_id != 2 and v_dept_id != 3 then
+dbms_output.put_line('please give me valid department id.');
+else
+update employee_ex
+set creation_date  = '29-04-24'
+where dept_id = v_dept_id;
+dbms_output.put_line('Data updated success fully!!!');
+end if;
+end;
+
+
+declare
+v_dept_id number := 3;
+begin
+ADD_DATE_EMP_EX_PROCE(v_dept_id);
+end;
+
+select * from employee_ex;
+
+
 
 
 
