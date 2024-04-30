@@ -15,4 +15,9 @@ select * from employee_ex;
 
 ============================================================================= 2. Row num in sql  ===================================================================================
 
+--Use to fetch only first three rows
+
+select * from employee_ex
+where ROWNUM <= 3;
+
 
