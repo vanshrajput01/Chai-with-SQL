@@ -771,6 +771,45 @@ set dept_id = 2
 where emp_id = 105;
 
 
+==================================================================  compound trigger ==============================================================================
+
+-- trigger in PL-SQL
+
+-- complex trigger in pl-sql
+
+create or replace trigger compound_exp_ex_tri
+for
+insert or update or delete
+on employee_Ex
+compound trigger
+
+before statement is
+begin
+dbms_output.put_line('****************  before statement level trigger *******************');
+end before statement;
+
+before EACH row is
+begin
+dbms_output.put_line('****************  before row level trigger *******************');
+end before each row;
+
+after each row is
+begin
+dbms_output.put_line('****************  after row level trigger *******************');
+end after each row;
+
+after statement is
+begin
+dbms_output.put_line('****************  After statement level trigger *******************');
+end after statement;
+end compound_exp_ex_tri;
+
+
+update employee_Ex
+set dept_id = 2
+where emp_id = 104;
+
+
 
 
 
