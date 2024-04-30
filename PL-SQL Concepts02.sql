@@ -810,6 +810,9 @@ set dept_id = 2
 where emp_id = 104;
 
 
+insert into employee_ex(emp_id,emp_name,emp_salary) values (111,'emp11',1600);
+
+
 
 
 
