@@ -719,6 +719,18 @@ end;
 
 select * from employee_ex;
 
+=================================================================  Trigger in PLSQL ===========================================================================================
+
+--before update Row level trigger
+
+create or replace trigger update_bef_emp_Ex_tri
+before
+update
+on employee_Ex
+FOR EACH ROW
+begin
+dbms_output.put_line('****************  before update row level trigger *******************');
+end;
 
 
 
