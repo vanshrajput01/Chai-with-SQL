@@ -36,5 +36,21 @@ set dept_id = emp_ex_dept_id.Nextval
 where emp_id = 102;
 
 
+============================================================================  4. CURRVAL  =========================================================================================
+
+--  Pseudo Column in sql
+
+select * from employee_ex;
+
+--3. CURRVAL
+
+create SEQUENCE emp_ex_dept_id;
+
+update employee_Ex
+set dept_id = emp_ex_dept_id.currval   --- that store current value of sequence 
+where emp_id = 104;
+
+
+
 
 
