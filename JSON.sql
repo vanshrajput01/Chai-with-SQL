@@ -106,3 +106,21 @@ apex_json.parse(json_string);
 dbms_output.put_line(apex_json.get_number(p_path => 'items[%d]' , p0 => 2));
 end;
 
+--Apex_json
+============================================================== important example ============================================================================================
+declare
+json_string clob :=  '{"employee_details" : [{"emp_id" : 101},{"emp_name" : "jaison"},{"emp_salary" : 10000}]}';
+v_count number;
+begin
+apex_json.parse(json_string);
+v_count := apex_json.get_count(p_path => 'employee_details');
+
+dbms_output.put_line(v_count);
+
+for i in 1..v_count loop
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_id' , p0 => i));
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_name' , p0 => i));
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_salary' , p0 => i));
+end loop;
+end;
+
