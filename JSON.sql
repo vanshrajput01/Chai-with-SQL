@@ -77,3 +77,18 @@ dbms_output.put_line(apex_json.get_count(p_path => '.' , p_values => json_obj));
 
 end;
 
+=======================================================================  get value from array  ===============================================================================================
+
+-- get_count Methrod
+
+declare
+json_string clob := '{"num_items" : [1,2,3] , "value_items" : "value1"}'; 
+
+begin
+apex_json.parse(json_string);
+dbms_output.put_line(apex_json.get_count(p_path => 'num_items'));
+dbms_output.put_line(apex_json.get_number(p_path => 'num_items[%d]' , p0 => 1));
+dbms_output.put_line(apex_json.get_number(p_path => 'num_items[%d]' , p0 => 2));
+dbms_output.put_line(apex_json.get_number(p_path => 'num_items[%d]' , p0 => 3));
+end;
+
