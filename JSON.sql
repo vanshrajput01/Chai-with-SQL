@@ -38,3 +38,22 @@ dbms_output.put_line('Employee full name is  : '|| emp_first_name || ' ' || emp_
 
 
 end;
+
+
+=================================================================================  Example 03 ====================================================================================
+
+
+
+--APEX_JSON
+DECLARE
+json_string clob := '{"emp_id": 101 , "emp_name" : "Nil","emp_salary" : 10000}';
+v_emp_name varchar(20);
+v_emp_id number;
+begin
+apex_json.parse(json_string);
+v_emp_name := apex_json.get_varchar2(p_path => 'emp_name');
+dbms_output.put_line(v_emp_name);
+
+end;
+
+
