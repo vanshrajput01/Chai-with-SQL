@@ -92,3 +92,17 @@ dbms_output.put_line(apex_json.get_number(p_path => 'num_items[%d]' , p0 => 2));
 dbms_output.put_line(apex_json.get_number(p_path => 'num_items[%d]' , p0 => 3));
 end;
 
+
+============================================================================  Example 05 =====================================================================================
+
+
+--Apex_json
+
+declare
+json_string clob:= '{"items" : [1,2,3,{"foo": 24}]}';
+
+begin
+apex_json.parse(json_string);
+dbms_output.put_line(apex_json.get_number(p_path => 'items[%d]' , p0 => 2));
+end;
+
