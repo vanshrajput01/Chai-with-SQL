@@ -124,3 +124,29 @@ dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_
 end loop;
 end;
 
+================================================================== another important example  =====================================================================================
+
+declare
+json_string_emp clob := '{"employee_details" : [{"emp_id":101},{"emp_name":"jaison"},{"emp_salary":10000},{"dept_id" : 1}]}';
+
+v_emp_id number;
+v_emp_name varchar(20);
+v_emp_salary number;
+v_dept_id number;
+emp_count number;
+begin
+apex_json.parse(json_string_emp);
+emp_count := apex_json.get_count(p_path => 'employee_details');
+
+v_emp_id := apex_json.get_number(p_path => 'employee_details[%d].emp_id' , p0 => 1);
+v_emp_name := apex_json.get_varchar2(p_path => 'employee_details[%d].emp_name' , p0 => 2);
+v_emp_salary := apex_json.get_number(p_path => 'employee_details[%d].emp_salary' , p0 => 3);
+dbms_output.put_line(v_emp_id);
+dbms_output.put_line(v_emp_name);
+dbms_output.put_line(v_emp_salary);
+
+insert into employee_ex (emp_id,emp_name,emp_salary) values (v_emp_id,v_emp_name,v_emp_salary);
+end;
+select * from employee_ex;
+
+
