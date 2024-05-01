@@ -163,6 +163,42 @@ end;
 insert into emp_view values(110,'emp10',1800,4,'Finance');
 
 
+====================================================================== compound trigger in pl-sql ==================================================================================
+
+--compund trigger un PL-SQL
+
+create or replace trigger compound_emp_ex_tri1
+for insert or update or delete
+on employee_Ex
+compound TRIGGER
+
+before statement is
+begin
+dbms_output.put_line('****************  before statement compound trigger ******************');
+end before statement;
+
+before each row is
+begin
+dbms_output.put_line('****************  before row level compound trigger ******************');
+end before each row;
+
+
+after each row is
+begin
+dbms_output.put_line('****************  after row compound trigger ******************');
+end after each row;
+
+after statement is
+begin
+dbms_output.put_line('****************  after statement compound trigger ******************');
+end after statement;
+
+end compound_emp_ex_tri1;
+
+delete from employee_ex
+where emp_id = 101;
+
+
 
 
 
