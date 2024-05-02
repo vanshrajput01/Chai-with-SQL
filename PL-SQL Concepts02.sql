@@ -832,6 +832,33 @@ begin
 get_data_from_ts_proce('employee');
 end;
 
+-- Example 02 :- 
+--Execute immediate into statement with bind variable
+
+
+create or replace procedure date_get_in_table
+(
+v_table_name varchar2,
+v_dept_id number
+)
+as
+v_sql varchar(200);
+v_count number;
+--v_emp_name varchar(20);
+--v_emp_salary number;
+
+begin
+v_sql := 'select count(*) from '||v_table_name || ' where dept_id = :dept_no';
+execute immediate v_sql into v_count using v_dept_id;
+dbms_output.put_line( v_count);
+end;
+
+begin
+date_get_in_table('employee',2);
+end;
+
+
+
 
 
 
