@@ -150,3 +150,19 @@ end;
 select * from employee_ex;
 
 
+=========================================================================== Example 06 ===============================================================================
+
+declare
+json_string clob := '{"employee_details" : [{"emp_name" : "joshest mark"},{"emp_city":"new York"},{"emp_id" : 101},{"emp_salary" : 10000},5,6]}';
+begin
+apex_json.parse(json_string);
+dbms_output.put_line(apex_json.get_count(p_path => '.')); -- 1
+dbms_output.put_line(apex_json.get_count(p_path => 'employee_details')); -- 6
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_name' , p0 => 1));
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_city' , p0 => 2));
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_id' , p0 => 3));
+end;
+
+
+
+
