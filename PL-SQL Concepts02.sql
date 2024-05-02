@@ -813,6 +813,29 @@ where emp_id = 104;
 insert into employee_ex(emp_id,emp_name,emp_salary) values (111,'emp11',1600);
 
 
+========================================================================= Execute Immediate in PL-SQL  =======================================================================
+
+-- Execute Immediate into statement
+
+create or replace procedure get_data_from_ts_proce(v_table_name varchar2) as
+v_sql varchar(200);
+v_emp_name varchar(20);
+v_emp_id number;
+v_emp_salary number;
+begin
+v_sql := 'SELECT emp_id,emp_name,emp_salary FROM ' || v_table_name || ' WHERE emp_id = 102';
+execute immediate v_sql into v_emp_id,v_emp_name,v_emp_salary;
+dbms_output.put_line('Employee details is : '|| v_emp_id || ' ' || v_emp_name || ' ' || v_emp_salary);
+end; 
+
+begin
+get_data_from_ts_proce('employee');
+end;
+
+
+
+
+
 
 
 
