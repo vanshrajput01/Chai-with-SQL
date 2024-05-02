@@ -879,6 +879,26 @@ begin
 end;
 
 
+-- Bulk collect in PL-SQL;
+
+create or replace procedure bulk_collect_get_data_proce as
+v_sql varchar(200);
+type v_emp_name is table of varchar(20);
+v_e_name v_emp_name;
+begin
+v_sql := 'select emp_name from employee';
+execute immediate v_sql bulk collect into v_e_name;
+for i in 1..v_e_name.count loop
+dbms_output.put_line('Employee details : '|| v_e_name(i));
+end loop;
+end;
+
+begin
+BULK_COLLECT_GET_DATA_PROCE;
+end;
+
+
+
 
 
 
