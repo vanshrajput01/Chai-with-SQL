@@ -857,6 +857,28 @@ begin
 date_get_in_table('employee',2);
 end;
 
+-- Example 03 :- 
+create or replace procedure exe_immediate_get_data_proce
+(v_table_name varchar2,
+v_emp_id number
+)
+as
+v_sql varchar(200);
+v_e_id number;
+v_emp_name varchar(20);
+v_emp_salary number;
+v_dept_id number;
+begin
+v_sql := 'select emp_id,emp_name,emp_salary,dept_id from '||v_table_name|| ' where emp_id = :emp_no';
+execute immediate v_sql into v_e_id , v_emp_name , v_emp_salary , v_dept_id using v_emp_id;
+dbms_output.put_line('employee details is :'||v_e_id || ' ' || v_emp_name || ' ' || v_emp_salary);
+end;
+
+begin
+ exe_immediate_get_data_proce('employee',101);
+end;
+
+
 
 
 
