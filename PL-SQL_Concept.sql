@@ -36,5 +36,35 @@ begin
 EXE_IMMD_FIRST_PROCE('employee',112);
 end;
 
+-- Example 03 :---
+
+================================================================================================================================================================================
+
+--Bulk collect
+
+create or replace procedure EXE_IMMD_Sec_PROCE(
+v_table_name varchar2,
+v_dept_id number
+)as
+v_sql  varchar(200);
+type v_emp_name is table of varchar(20);
+v_e_name v_emp_name;
+
+begin
+v_sql := 'select emp_name from '||v_table_name|| ' where dept_id = :dept_no';
+execute immediate v_Sql bulk collect into v_e_name using v_dept_id;
+for i in 1..v_e_name.count loop
+dbms_output.put_line('department id '|| v_dept_id || 'details is : - '||v_e_name(i));
+end loop;
+end;
+
+begin
+EXE_IMMD_Sec_PROCE('employee',2);
+end;
+
+
+
+
+
 
 
