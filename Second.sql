@@ -120,6 +120,23 @@ insert into employee_Ex values (102,'emp02',18)
 Error report -
 ORA-02290: check constraint (APPS.SYS_C001769550) violated
 
+alter table employee_Ex
+add emp_gender char(1) check (emp_gender = 'M' or emp_gender = 'F');
+
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (102,'emp02',20,'M');
+
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (103,'emp03',20,'F');
+
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (104,'emp04',20,'S');
+
+-- Error is 
+Error starting at line : 24 in command -
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (104,'emp04',20,'S')
+Error report -
+ORA-02290: check constraint (APPS.SYS_C001769553) violated
+
+
+
 
 
 
