@@ -102,8 +102,23 @@ dept_id number
 alter table employee_Ex
 modify dept_id unique;
 
+====================================================================        Check constraint ===================================================================================
+--check Constraint in sql
+  
+create table employee_Ex(
+emp_id number primary key,
+emp_name varchar(20),
+emp_age number CHECK (emp_age > 18)
+);
 
+insert into employee_Ex values (101,'emp01',19);
+-- Error table 
+insert into employee_Ex values (102,'emp02',18);
 
+-- Error starting at line : 10 in command -
+insert into employee_Ex values (102,'emp02',18)
+Error report -
+ORA-02290: check constraint (APPS.SYS_C001769550) violated
 
 
 
