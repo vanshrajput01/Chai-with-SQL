@@ -67,6 +67,44 @@ alter table employee_Ex
 modify emp_bouns number DEFAULT 200;
 
 
+============================================================================  unique Constraint =================================================================================
+
+create table employee_Ex(
+emp_id number unique,
+emp_name varchar(20)
+);
+
+insert into employee_ex values (101,'emp1');
+ 
+insert into employee_ex values (101,'emp1');
+
+-- Error in this line
+Error starting at line : 6 in command -
+insert into employee_ex values (101,'emp1')
+Error report -
+ORA-00001: unique constraint (APPS.SYS_C001769546) violated
+
+
+-- if table is already created but add column with unique Constraint
+
+alter table employee_Ex
+add dept_id number unique;
+
+create table employee_Ex(
+emp_id number unique,
+emp_name varchar(20),
+dept_id number
+);
+
+-- how to add constraint if column is already created
+
+
+alter table employee_Ex
+modify dept_id unique;
+
+
+
+
 
 
 
