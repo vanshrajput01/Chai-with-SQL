@@ -140,6 +140,22 @@ Error report -
 ORA-02290: check constraint (APPS.SYS_C001769553) violated
 
 
+-- if column is already in table but add constraint 
+
+alter table employee_Ex
+modify emp_age check (emp_age < 55);
+
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (105,'emp05',54,'F');
+
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (106,'emp06',64,'F');
+
+-- Error
+
+Error starting at line : 24 in command -
+insert into employee_Ex (emp_id,emp_name,emp_age,emp_gender)values (106,'emp06',64,'F')
+Error report -
+ORA-02290: check constraint (APPS.SYS_C001769553) violated
+
 
 
 
