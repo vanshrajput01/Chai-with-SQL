@@ -120,6 +120,10 @@ insert into employee_Ex values (102,'emp02',18)
 Error report -
 ORA-02290: check constraint (APPS.SYS_C001769550) violated
 
+
+-- if table is already created use this
+
+  
 alter table employee_Ex
 add emp_gender char(1) check (emp_gender = 'M' or emp_gender = 'F');
 
