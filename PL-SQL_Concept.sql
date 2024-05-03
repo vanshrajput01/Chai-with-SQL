@@ -62,6 +62,36 @@ begin
 EXE_IMMD_Sec_PROCE('employee',2);
 end;
 
+======================================================================================================================================================================================
+
+  -- Example 04 :- 
+
+
+create or replace procedure EXE_IMMD_TRI_PROCE(
+v_table_name varchar2,
+v_dept_id number
+)as
+v_sql varchar(200);
+type v_emp_id is table of number;
+v_e_id v_emp_id;
+type v_emp_name is table of varchar(20);
+v_e_name v_emp_name;
+type v_emp_salary is table of number;
+v_e_salary v_emp_salary;
+begin
+v_Sql := 'select emp_id,emp_name,emp_salary from '||v_table_name || ' where dept_id = :dept_no';
+execute IMMEDIATE v_Sql bulk collect into v_e_id,v_e_name,v_e_salary using v_dept_id;
+for i in 1..v_e_id.count loop
+dbms_output.put_line('Employee details is : '||v_e_id(i)|| ' ' || v_e_name(i) || ' ' ||v_e_salary(i));
+end loop;
+end;
+
+
+begin
+ EXE_IMMD_TRI_PROCE('employee',1);
+end;
+
+
 
 
 
