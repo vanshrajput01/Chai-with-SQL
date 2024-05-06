@@ -81,6 +81,27 @@ FROM employee_ex e full join department_ex d
 on e.dept_id = d.dept_id;
 
 
+=========================================================================  IN and between operator in sql ===========================================================================
+
+select * from employee_Ex;
+
+-- in
+update employee_Ex
+set emp_city = 'Delhi'
+where dept_id in (1,2,3);
+
+update employee_Ex
+set emp_city = 'Noida'
+where dept_id  in (4,6);
+
+select * from employee_ex;
+
+
+--Between
+
+select * from employee_Ex
+where emp_salary between 1000 and 10000;
+
 
 
 
