@@ -352,6 +352,34 @@ dbms_output.put_line('number of rows insert into employee : '|| sql%rowcount);
 end;
 
 
+======================================================================================================================================================================
+
+create or replace procedure get_date_emp_tbl_proce(
+v_dept_id number
+)as
+v_sql varchar(300);
+type v_tbl_vari is table OF varchar(20);
+t_v  v_tbl_vari;
+begin
+v_sql := 'select emp_name from employee where dept_id = :dept_no';
+EXECUTE IMMEDIATE v_sql BULK collect into t_v using v_dept_id;
+
+for i in 1..t_v.count loop
+dbms_output.put_line('Employee name details is : '|| t_v(i));
+end loop;
+
+
+exception 
+when others then
+dbms_output.put_line('Error : '||SQLERRM);
+end;
+
+
+begin
+GET_DATE_EMP_TBL_PROCE(1);
+end;
+
+
 
 
 
