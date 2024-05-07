@@ -147,6 +147,13 @@ select * from employee_Ex
 where emp_city not like 'Delhi';
 
 
+============================================================================== Union in sql ==============================================================================
+
+select emp_id,emp_name,emp_salary from employee
+union
+select emp_id,emp_name,emp_salary from employee_ex;
+
+
 
 
 
