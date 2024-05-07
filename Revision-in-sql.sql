@@ -154,6 +154,35 @@ union
 select emp_id,emp_name,emp_salary from employee_ex;
 
 
+========================================================================== Union all in sql =============================================================================
+
+select * from employee_Ex;
+
+-- Union and Union All
+
+select emp_id,emp_name,emp_salary from employee
+union 
+select emp_id,emp_name,emp_salary from employee_ex;
+
+select emp_id,emp_name ,emp_salary from employee
+union All
+select emp_id,emp_name,emp_salary from employee_ex;
+
+
+select count(*) from (select emp_id,emp_name ,emp_salary from employee
+union 
+select emp_id,emp_name,emp_salary from employee_ex);
+
+select count(*) from (select emp_id,emp_name ,emp_salary from employee
+union All
+select emp_id,emp_name,emp_salary from employee_ex);
+
+
+
+
+
+
+
 
 
 
