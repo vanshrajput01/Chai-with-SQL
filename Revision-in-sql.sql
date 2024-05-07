@@ -178,6 +178,50 @@ union All
 select emp_id,emp_name,emp_salary from employee_ex);
 
 
+============================================================================== NVL and NVL2 ==========================================================================================
+
+select * from employee_ex;
+
+--NVL AND NVL2
+
+create table employee_Ex(
+emp_id number primary key,
+emp_name varchar(20),
+emp_salary number
+);
+
+
+select * from employee_Ex;
+
+insert into employee_Ex (emp_id,emp_name,emp_Salary) 
+(select emp_id,emp_name,emp_salary from employee
+where emp_id in (1,2,3,4));
+
+alter table employee_Ex
+add emp_bouns number;
+
+select * from employee_Ex;
+
+update employee_Ex
+set emp_bouns = 100
+where emp_id in (1,3);
+
+select (NVL(emp_bouns,10) + emp_salary)total_salary,emp_name,emp_bouns from employee_ex;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
