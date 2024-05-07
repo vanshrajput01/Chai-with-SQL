@@ -96,11 +96,28 @@ where dept_id  in (4,6);
 
 select * from employee_ex;
 
+============================================================================= Not in operator ==================================================================================
+
+  select * from employee_ex;
+-- not in operator in SQL
+
+select * from employee_Ex
+where emp_city not in ('Delhi','Noida');
+
+update employee_EX
+set emp_salary = 10000
+where dept_id not in (1,2,3,4);
+
+
+
+
 
 --Between
 
 select * from employee_Ex
 where emp_salary between 1000 and 10000;
+
+
 
 
 
