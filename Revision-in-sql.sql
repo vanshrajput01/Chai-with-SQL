@@ -118,6 +118,26 @@ select * from employee_Ex
 where emp_salary between 1000 and 10000;
 
 
+==================================================================================== like operator in SQL =========================================================================
+-- Like operator in SQL
+
+  
+select * from employee_ex;
+
+select * from employee_Ex
+where emp_city like 'D%';
+
+select * from employee_ex
+where emp_city like '%a';
+
+select * from employee_Ex
+where emp_city like 'Noid_';
+
+select * from employee_Ex
+where emp_city like '_elhi';
+
+
+
 
 
 
