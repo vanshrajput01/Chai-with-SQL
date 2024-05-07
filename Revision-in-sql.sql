@@ -137,6 +137,16 @@ select * from employee_Ex
 where emp_city like '_elhi';
 
 
+================================================================================= NOt like in SQL ==============================================================================
+
+
+select * from employee_Ex
+where emp_city not like 'Jap%';
+
+select * from employee_Ex
+where emp_city not like 'Delhi';
+
+
 
 
 
