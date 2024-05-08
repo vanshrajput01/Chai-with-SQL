@@ -66,6 +66,32 @@ end loop;
 end;
 
 
+======================================================================= Current of clause ====================================================================================
+
+--select * from employee_ex;
+
+--current of cursor
+
+declare
+emp EMPLOYEE%ROWTYPE;
+cursor c1 is
+select * from employee where dept_id = 1
+for update;
+
+begin
+for i in c1 loop
+dbms_output.put_line(i.emp_name || i.emp_salary);
+update employee
+set emp_salary = 10
+where current of c1;
+end loop;
+end;
+
+
+
+
+
+
 
 
 
