@@ -286,6 +286,80 @@ select case when emp_bouns is null
 select * from employee_Ex;
 
 
+================================================================= Conversion function in sql ======================================================================
+
+
+select * from employee_ex;
+
+--sequence in sql
+
+create SEQUENCE emp_id_seq;
+
+select emp_id_seq.nextval from dual;
+
+select emp_id_seq.currval from dual;
+
+--Conversion function in sql
+
+--Convert char to date in sql
+
+update employee_ex
+set creation_date = '13-APR-24'
+where emp_id = 101;
+
+-- that give me Error
+update employee_ex
+set creation_date = '13-APR-24'
+where emp_id = 101;
+
+--Date is not correct
+
+update employee_ex
+set creation_date = 'APR-13-24'
+where emp_id = 102;
+
+-- Syntax is Correct 
+
+
+update employee_ex
+set creation_date = to_date('APR-12-24','MM-DD-YYYY')
+where emp_id = 102;
+
+--Error
+
+update employee_ex
+set creation_date = '2024-MAR-20'
+where emp_id = 104;
+
+-- Syntax is Correct 
+
+update employee_ex
+set creation_date = to_date('2024-MAR-20','YYYY/MM/DD')
+where emp_id = 104;
+
+
+--Error
+
+update employee_ex
+set creation_date = '202421MAR'
+where emp_id = 105;
+
+-- Syntax is Correct 
+
+update employee_ex
+set creation_date = to_date('202421MAR','YYYYDDMM')
+where emp_id = 105;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
