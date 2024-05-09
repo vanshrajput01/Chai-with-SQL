@@ -163,6 +163,53 @@ dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_
 dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_details[%d].emp_id' , p0 => 3));
 end;
 
+======================================================================  Example 07 ==================================================================================
+
+declare
+json_data_string clob:= '{"nums" : [1,2,3,4,5,6,7]}';  
+begin
+apex_json.parse(json_data_string);
+dbms_output.put_line(apex_json.get_count(p_path => 'nums'));
+dbms_output.put_line(apex_json.get_number(p_path => 'nums[%d]',p0 => 1));
+end;
+
+declare
+json_data_string clob := '{"nums" : [1,2,3,4,5,6,7,8]}';
+json_parse_obj apex_json.t_values;
+begin
+apex_json.parse(json_parse_obj , json_data_string);
+dbms_output.put_line(apex_json.get_count(p_path => 'nums',p_values => json_parse_obj));
+dbms_output.put_line(apex_json.get_number(p_path => 'nums[%d]',p0 => 2,p_values => json_parse_obj));
+dbms_output.put_line(apex_json.get_number(p_path => 'nums[%d]',p0 => 7,p_values => json_parse_obj));
+end;
+
+
+declare
+json_data_string clob := '{"employee_tbl" : [{"emp_id" : 101},{"emp_name":"emp1"},{"emp_salary":2000},{"emp_city":"Delhi"},{"emp_exp":5}]}';
+json_parse_data apex_json.t_values;
+begin
+apex_json.parse(json_parse_data , json_data_string);
+dbms_output.put_line(apex_json.get_count(p_path => 'employee_tbl',p_values => json_parse_data));
+dbms_output.put_line(apex_json.get_number(p_path => 'employee_tbl[%d].emp_salary',p0 => 3 , p_values => json_parse_data));
+end;
+
+
+declare
+json_data_string clob := '{"employee_tbl" : [{"emp_id" : 101},{"emp_name":"emp1"},{"emp_salary":2000},{"emp_city":"Delhi"},{"emp_exp":5}]}';
+json_parse_data apex_json.t_values;
+l_count number;
+begin
+apex_json.parse(json_parse_data , json_data_string);
+l_count := apex_json.get_count(p_path => 'employee_tbl',p_values => json_parse_data);
+--dbms_output.put_line(apex_json.get_count(p_path => 'employee_tbl',p_values => json_parse_data));
+for i in 1..l_count loop
+dbms_output.put_line(apex_json.get_number(p_path => 'employee_tbl[%d].emp_id',p0 => i , p_values => json_parse_data));
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_tbl[%d].emp_name',p0 => i , p_values => json_parse_data));
+dbms_output.put_line(apex_json.get_number(p_path => 'employee_tbl[%d].emp_salary',p0 => i , p_values => json_parse_data));
+dbms_output.put_line(apex_json.get_varchar2(p_path => 'employee_tbl[%d].emp_city',p0 => i , p_values => json_parse_data));
+end loop;
+end;
+
 
 
 
