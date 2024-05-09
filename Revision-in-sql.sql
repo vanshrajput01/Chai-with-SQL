@@ -265,6 +265,33 @@ select emp_name,decode(emp_bouns,'',10,5,100,0,10,100,500,emp_bouns)decode_func,
 select decode(emp_salary,25,500,24,450,125,2000,emp_salary)decode_func_sal,emp_salary,emp_name from employee_Ex;
 
 
+==================================================================================  case statement ijn sql =================================================================
+
+
+select case when emp_salary < 50 
+           then 100
+            when emp_salary > 50
+            then 200
+            else
+            emp_salary
+end case_emp_sal,emp_name,emp_salary from employee_ex;
+
+select case when emp_bouns is null
+            then 100
+            when emp_bouns = 5
+            then 20
+            else 1000
+            end case_emp_bouns,emp_name,emp_bouns,emp_salary from employee_ex;            
+
+select * from employee_Ex;
+
+
+
+
+
+
+
+
 
 
 
