@@ -351,6 +351,53 @@ set creation_date = to_date('202421MAR','YYYYDDMM')
 where emp_id = 105;
 
 
+=================================================================================== system define date function in sql ==================================================
+
+
+-- System define date functions in sql
+
+select SESSIONTIMEZONE FROM DUAL;
+
+select sysdate from dual;
+
+select current_date from dual;
+
+select current_timestamp from dual;
+
+--Add_months
+
+select add_months('13-04-22',5) from dual;
+--13-09-24
+
+--Last_day
+
+select last_day(sysdate) from dual;
+--31-05-24
+
+--months_between
+
+select round(MONTHS_BETWEEN(sysdate,'11-05-23')) from dual;
+
+--Next_day
+
+select next_day(sysdate,'sat') from dual;
+
+--trunc
+
+select round(current_timestamp) from dual;
+
+select trunc(current_timestamp) from dual;
+
+select current_timestamp from dual;
+
+
+
+
+
+
+
+
+
 
 
 
