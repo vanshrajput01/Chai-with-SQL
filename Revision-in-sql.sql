@@ -257,6 +257,17 @@ select extract(month from sysdate) from dual;
 select extract(day from sysdate) from dual;
 
 
+========================================================================== Decode function in sql  ==============================================================================
+
+select emp_name,decode(emp_bouns,'',10,5,100,0,10,100,500,emp_bouns)decode_func,emp_salary,emp_bouns from employee_Ex;
+
+
+select decode(emp_salary,25,500,24,450,125,2000,emp_salary)decode_func_sal,emp_salary,emp_name from employee_Ex;
+
+
+
+
+
 
 
 
