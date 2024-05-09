@@ -246,7 +246,15 @@ select (NVL(emp_bouns,10) + emp_salary)total_salary,emp_name,emp_bouns from empl
 select emp_id,emp_name,emp_salary,emp_bouns,(NVL2(emp_bouns,10,0))nal2_column from employee_ex;
 
 
+================================================================== Extract function in sql   =============================================================================
 
+--how to get day,month,year from particular date
+
+select extract(year from sysdate) from dual;
+
+select extract(month from sysdate) from dual;
+
+select extract(day from sysdate) from dual;
 
 
 
