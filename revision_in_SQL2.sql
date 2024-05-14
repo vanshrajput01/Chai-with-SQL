@@ -70,3 +70,41 @@ where emp_city like '___hi';
 
 
 
+create sequence xx_emp_seq;
+
+select xx_emp_seq.nextval from dual;
+
+select xx_emp_seq.nextval from dual;
+
+select xx_emp_seq.nextval from dual;
+
+select xx_emp_seq.currval from dual; 
+
+--to_date function in sql
+
+alter table employee_t2
+add creation_date date;
+
+select * from employee_t2;
+
+
+update employee_t2
+set creation_date = '13-MAR-24'
+where dept_id in (1,2);
+
+insert into employee_t2
+values (107,'emp7',12600,3,'Gurgaon','MAY-08-24'); --Error---------------------------
+--ORA-01858: a non-numeric character was found where a numeric was expected
+
+select * from employee_t2;
+
+
+insert into employee_t2
+values (107,'emp7',12600,3,'Gurgaon','MAY-08-24'); 
+
+insert into employee_t2
+values (107,'emp7',12600,3,'Gurgaon',to_date('MAY-08-24','mon-dd-yyyy'));
+
+
+
+
