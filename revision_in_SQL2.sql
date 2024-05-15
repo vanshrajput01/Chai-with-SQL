@@ -106,5 +106,41 @@ insert into employee_t2
 values (107,'emp7',12600,3,'Gurgaon',to_date('MAY-08-24','mon-dd-yyyy'));
 
 
+select *from employee_t2;
+
+declare
+v_emp_id employee_t2.emp_id%type;
+
+begin
+select emp_id into v_emp_id from employee_t2
+where emp_id = 103; 
+dbms_output.put_line(v_emp_id);
+end;
+
+declare
+begin
+for i in (select emp_id,emp_name,emp_salary from employee_t2) loop
+dbms_output.put_line(i.emp_id || ' ' ||i.emp_name);
+end loop;
+end;
+
+declare
+type emp_rec is record(
+v_emp_name employee_t2.emp_name%type,
+v_emp_salary employee_t2.emp_salary%type,
+v_emp_city employee_t2.emp_city%type
+);
+er emp_rec;
+begin
+select emp_name,emp_salary,emp_city into er.v_emp_name,er.v_emp_salary,er.v_emp_city 
+from employee_t2
+where emp_id = 106;
+dbms_output.put_line(er.v_emp_name || ' ' ||er.v_emp_salary || ' ' ||er.v_emp_city);
+exception when no_data_found then
+dbms_output.put_line('data is not found');
+end;
+
+
+
 
 
