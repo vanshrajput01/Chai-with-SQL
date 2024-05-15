@@ -1,3 +1,6 @@
+
+
+
 -- --system defined string function in SQL
 
 --ASCII
@@ -65,3 +68,97 @@ select length('34') from dual;
 --2
 
 select replace('This',s,i) from dual;
+
+
+--string function in sql
+
+--ASCII
+--CHAR
+--Replace
+--Dump
+--Instr
+--Substr
+--Upper
+--Lower
+--Initcap
+--Lpad
+--Rpad
+--Rtrim
+--Ltrim
+--trim
+--translate
+--Length
+
+
+--ASCII
+
+select ascii('-') from dual;
+--45
+
+--Char
+select char(45) from dual;
+
+--  Replace
+
+select replace('This is my Tree','T','t') from dual;
+
+--this is my tree
+
+--Instr
+select instr('Orcale software','r',1,2) from dual;
+
+--14
+
+--Substr
+
+select substr('this is good boy.',1,4) from dual;
+
+--this
+
+--Dump
+select dump('1012') from dual;
+
+--Typ=96 Len=4: 49,48,49,50
+
+--Upper , lower , initcap
+
+select upper('name') from dual;
+--NAME
+select lower('ORACLE') from dual;
+--oracle
+
+select initcap('my name is this') from dual;
+
+--My Name Is This
+
+--RPAD & Lpad
+select rpad('2456',5,'0') from dual;
+--24560
+
+select lpad('3456',6,'12') from dual;
+--123456
+
+--trim
+
+select '   Oracle  ' from dual;
+--   Oracle 
+
+
+select trim('   Oracle  ') from dual;
+--Oracle
+
+--Translate
+
+select TRANSLATE('This is good boy g','good','mans') from dual;
+
+select TRANSLATE('This is good boy g','good','1234') from dual;
+--This is 1234 b2y 1
+
+select replace('This is good boy g','good','1234') from dual;
+--This is 1234 boy g
+
+
+
+
+
+
