@@ -158,6 +158,64 @@ select replace('This is good boy g','good','1234') from dual;
 --This is 1234 boy g
 
 
+========================================================================== Number in SQL =============================================================================
+
+
+--ABS
+--MOD
+--POWER
+--SQRT
+--FLOOR
+--CEIL
+--LEAST
+--ROUND
+--TRUNC
+--SIGN
+
+--ABS
+
+select abs(-10) from dual;
+
+--MOD
+
+select MOD(3,2),mod(24,5) from dual;
+
+--Power
+
+select power(4,3) from dual;
+
+--SQRT
+
+select SQRT(144) from dual;
+
+--FLOOR
+
+select FLOOR(4.8) from dual;
+
+--CEIL
+
+select CEIL(4.1) from dual;
+
+--LEAST
+
+select LEAST(20,10,3,5,6,7) from dual;
+
+--Round
+
+select round(5.56) from dual;
+
+--Trunc
+
+select Trunc(5.556) from dual;
+
+--SIGN
+
+select sign(255.5) from dual;
+
+
+
+
+
 
 
 
