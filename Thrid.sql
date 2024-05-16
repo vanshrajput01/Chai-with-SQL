@@ -51,6 +51,70 @@ set dept_id = emp_ex_dept_id.currval   --- that store current value of sequence
 where emp_id = 104;
 
 
+======================================================================== Some problem based on select =====================================================================
+
+
+select * from employees;
+
+select firstname,lastname 
+from employees
+where department = 'IT';
+
+select * from employees
+order by lastname;
+
+select department,avg(salary) from employees
+group by department;
+
+select department, avg(salary) as avg_salary from employees
+group by department
+having avg(salary) > 50000;
+
+select * from employees;
+
+select * from employees
+where hiredate > '01-JAN-19'
+order by salary desc;
+
+select * from employees;
+
+select count(*),department 
+from employees
+group by department; 
+
+select firstname,lastname,salary 
+from employees
+where department = 'Sales' and salary > 50000;
+
+select firstname,lastname,hiredate 
+from employees
+where hiredate between '01-JAN-19' AND '31-DEC-20';
+
+select * from employees;
+
+select firstname,lastname 
+from employees
+where lastname like 'J%';
+
+select firstname,lastname,salary
+from employees
+where department in ('IT','HR');
+
+
+select department,max(salary) as max_salary
+from employees
+group by department
+having max(salary) > 60000;
+
+select firstname,lastname,length(firstname)
+from employees
+where length(firstname) > 3;
+
+
+
+
+
+
 
 
 
