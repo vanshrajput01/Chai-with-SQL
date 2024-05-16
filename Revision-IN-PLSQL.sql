@@ -135,6 +135,70 @@ i := i+1;
 end loop;
 end;
 
+--Rowtype data type in PL-SQL
+
+
+declare
+emp employee_t2%rowtype;
+begin
+select emp_name,emp_salary,emp_city into emp.emp_name,emp.emp_salary,emp.emp_city
+from employee_t2
+where emp_id = 103;
+dbms_output.put_line('Employee data :- '||emp.emp_name || ' ' ||emp.emp_city || ' ' || emp.emp_salary);
+end;
+
+--record type data type in PL-SQl;
+
+declare
+type emp_record is record(
+v_name employee_t2.emp_name%type,
+v_salary employee_t2.emp_salary%type,
+v_city employee_t2.emp_city%type
+);
+er emp_record;
+begin
+SELECT emp_name,emp_salary,emp_city into er.v_name,er.v_salary,er.v_city
+from employee_t2
+where emp_id = 102;
+dbms_output.put_line('Employee details is : - '|| er.v_name || ' ' || er.v_salary);
+exception
+when no_data_found then
+dbms_output.put_line('Data is not found!!');
+end;
+
+--Cursor in PL-SQL!!
+
+declare
+emp EMPLOYEE_t2%ROWTYPE;
+cursor c1 is
+select * from employee_t2;
+begin
+open c1;
+loop
+fetch c1 into emp;
+dbms_output.put_line('Employee details is :- '||emp.emp_name || ' ' ||emp.emp_salary|| ' ' || emp.emp_city);
+exit when c1%notfound;
+end loop;
+close c1;
+end;
+
+--for loop
+
+declare
+begin
+for i in (select emp_name,emp_salary from employee_t2) loop
+dbms_output.put_line('Employee details is : - '|| i.emp_name || ' ' || i.emp_salary);
+end loop;
+
+end;
+
+
+
+
+
+
+
+
 
 
 
