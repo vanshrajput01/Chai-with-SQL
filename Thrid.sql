@@ -111,6 +111,52 @@ from employees
 where length(firstname) > 3;
 
 
+--1
+
+select firstname , lastname ,salary
+from employees
+where salary between 45000 and 60000;
+
+--2.
+
+select count(*) ,department
+from employees
+group by department;
+
+--3.
+
+select firstname,lastname,hiredate
+from employees
+where hiredate > '18-JUL-18';
+
+--4.
+
+select firstname,lastname
+from employees
+where firstname like '%a%';
+
+--5.
+
+select department,avg(salary),count(*)
+from employees
+group by department
+having count(*) > 1;
+
+--6.
+
+select salary,firstname,lastname 
+from employees
+where ROWNUM < 4
+order by salary desc;
+
+--7.
+
+select * from employees;
+
+select firstname,lastname,round(MONTHS_BETWEEN(SYSDATE,hiredate))/12 as number_of_years
+from employees;
+
+
 
 
 
