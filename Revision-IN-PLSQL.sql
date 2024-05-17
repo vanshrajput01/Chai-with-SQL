@@ -193,6 +193,69 @@ end loop;
 end;
 
 
+--Function in PL-SQL
+
+--declare function here
+
+create or replace function add_values(num1 in number , num2 in number) 
+RETURN number 
+is 
+result_value number;
+begin
+result_value := num1 + num2;
+return result_value;
+end;
+
+--Call function ii PL-SQL
+begin
+dbms_output.put_line(add_values(4,5));
+end;
+
+drop trigger bef_upt_emp_row_trigger;
+--Trigger in PL-SQL
+create or replace trigger bef_upt_emp_statement_trigger
+before
+update
+on employee_t2
+begin
+dbms_output.put_line('********************  Before update statement level trigger ******************');
+end;
+
+create or replace trigger bef_upt_emp_row_trigger
+before
+update
+on employee_t2
+for each row
+begin
+dbms_output.put_line('***********************  Before Update row Level Trigger ******************');
+end;
+
+
+create or replace trigger aft_upt_emp_row_trigger
+after
+update
+on employee_t2
+for each row
+begin
+dbms_output.put_line('***********************  Before Update row  Level Trigger ******************');
+end;
+
+
+create or replace trigger aft_upt_emp_statement_trigger
+after
+update
+on employee_t2
+begin
+dbms_output.put_line('**************  After update statement level trigger **************');
+end;
+
+select * from employee_t2;
+
+
+
+
+
+
 
 
 
