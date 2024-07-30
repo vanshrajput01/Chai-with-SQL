@@ -380,6 +380,33 @@ GET_DATE_EMP_TBL_PROCE(1);
 end;
 
 
+============================================================================  Call Procedure using EXEcute immediate ============================================
+
+CREATE OR REPLACE PROCEDURE XXCUST_FIRST_PROCE(
+A NUMBER,
+B NUMBER,
+C NUMBER,
+D NUMBER
+)as
+BEGIN
+DBMS_OUTPUT.PUT_LINE(A +B +C +D);
+END;
+
+DECLARE
+V_sQL VARCHAR(200);
+A NUMBER := 1;
+B NUMBER := 2;
+BEGIN
+V_SQL := '
+BEGIN
+XXCUST_FIRST_PROCE(:X,:X,:Y,:X);
+END;';
+EXECUTE IMMEDIATE V_SQL USING A,B;
+END;
+
+
+
+
 
 
 
