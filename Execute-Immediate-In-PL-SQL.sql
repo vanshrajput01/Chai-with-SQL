@@ -405,6 +405,34 @@ EXECUTE IMMEDIATE V_SQL USING A,B;
 END;
 
 
+==============================================================  Another Example of Call procedure using execute immediate ========================================
+
+
+CREATE OR REPLACE PROCEDURE XXCUST_FIRST_PROCE(
+A NUMBER,
+B NUMBER,
+C NUMBER,
+D NUMBER
+)as
+BEGIN
+DBMS_OUTPUT.PUT_LINE(A +B +C +D);
+END;
+
+DECLARE
+V_sQL VARCHAR(200);
+A NUMBER := 1;
+B NUMBER := 2;
+BEGIN
+V_SQL := '
+BEGIN
+XXCUST_FIRST_PROCE(:W,:X,:Y,:Z);
+END;';
+EXECUTE IMMEDIATE V_SQL USING A,B,A,B;
+END;
+
+
+
+
 
 
 
